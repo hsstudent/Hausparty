@@ -8,7 +8,7 @@ namespace F_Spielprojekt
     public class Haus : SpielObjekt
     {
 
-        public Haus(Position meinePosition, int farbe) : base (meinePosition, farbe)
+        public Haus(Position meinePosition, Farbe farbe, Form1 meineForm) : base (meinePosition, farbe, meineForm)
         {
 
         }

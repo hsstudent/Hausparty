@@ -3,14 +3,14 @@
   <Class Name="F_Spielprojekt.Form1">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAGABAAACCAAAQAUAAGAACAiABACAAAAQAABAAAAAIQ=</HashCode>
-      <FileName>Oberflaeche.cs</FileName>
+      <HashCode>AAGABAAAiCQAASAUAAGAACAiABACAAAAQAABAAAAAIQ=</HashCode>
+      <FileName>Form1.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="F_Spielprojekt.SpielObjekt">
     <Position X="3.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAEAAAABAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAQQAAAAEAAAAABAAAAAQAEAAAABAAAAAA=</HashCode>
       <FileName>SpielObjekt.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -52,7 +52,7 @@
   <Class Name="F_Spielprojekt.Position">
     <Position X="9.75" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAEAAAABAAAAAAwAAAAAAAAAAAAAAAwAAAAAA=</HashCode>
+      <HashCode>ABAAAAAAEAAAABAAAAAAwAAAAAAAAAAAAAAAwAAAAAA=</HashCode>
       <FileName>Position.cs</FileName>
     </TypeIdentifier>
   </Class>

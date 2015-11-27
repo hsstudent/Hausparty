@@ -18,7 +18,7 @@ namespace F_Spielprojekt
         private bool i4 = true;
         private bool i5 = true;
 
-        private int zaehler = 0;                                    // Nach jedem 10 Interval, soll ein neues Männchen genertiert werden
+        private int zaehler = 1;                                    // Nach jedem 10 Interval, soll ein neues Männchen genertiert werden
         
         public Form1()
         {
@@ -46,13 +46,45 @@ namespace F_Spielprojekt
 
         private void OnTickEvent(Object myObject, EventArgs myEventArgs)
         {
+            zaehler++;
+
             foreach (Person person in personen)
             {
-                person.PosX += 10;
+                person.MeinePosition.PosX += 10;
             }
             if (zaehler == 10)
             {
-                Person meinePerson = new Person(Position.StartPosition, );
+                Person meinePerson = new Person(Position.StartPosition, zufallsFarbe(), this);
+                pBPerson = new PictureBox();
+                //
+                // pBPerson
+                //
+                pBPerson.Enabled = false;
+                pBPerson.Image = ((System.Drawing.Image)(resources.GetObject("pB5.Image")));
+                pBPerson.Margin = new System.Windows.Forms.Padding(2);
+                pBPerson.Location = new System.Drawing.Point(Position.StartPosition.PosX, Position.StartPosition.PosY);
+                pBPerson.Name = "pBPerson" + personen.Count.ToString();
+                pBPerson.Size = new System.Drawing.Size(34, 41);
+                pBPerson.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+
+                meinePerson.MeinBild = pBPerson;
+                personen.Add(meinePerson);
+            }
+        }
+
+        private Farbe zufallsFarbe()
+        {
+            int zufallsZahl;
+            Random rdm = new Random();
+            zufallsZahl = rdm.Next(0, 5);
+            switch (zufallsZahl)
+            {
+                case 0: return Farbe.Blau;
+                case 1: return Farbe.Gelb;
+                case 2: return Farbe.Grün;
+                case 3: return Farbe.Rot;
+                case 4: return Farbe.Schwarz;
+                default: return Farbe.Schwarz;
             }
         }
 
@@ -134,6 +166,11 @@ namespace F_Spielprojekt
         private void bOptionen_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form1_Click(object sender, MouseEventArgs e)
+        {
+            MessageBox.Show(e.X.ToString()+ " " + e.Y.ToString());
         }
     }
 }
