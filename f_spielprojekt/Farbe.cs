@@ -5,7 +5,7 @@ using System.Text;
 
 namespace F_Spielprojekt
 {
-    public enum Farben
+    public enum Farbe
     {
         Gelb,
         Rot,

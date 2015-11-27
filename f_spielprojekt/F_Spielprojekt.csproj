@@ -46,8 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Farben.cs" />
-    <Compile Include="Haeuser.cs" />
+    <Compile Include="Farbe.cs" />
+    <Compile Include="Haus.cs" />
     <Compile Include="Highscore.cs" />
     <Compile Include="Oberflaeche.cs">
       <SubType>Form</SubType>
@@ -56,11 +56,12 @@
       <DependentUpon>Oberflaeche.cs</DependentUpon>
     </Compile>
     <Compile Include="Optionen.cs" />
-    <Compile Include="Personen.cs" />
+    <Compile Include="Person.cs" />
+    <Compile Include="Position.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Spieler.cs" />
-    <Compile Include="SpielObjekte.cs" />
+    <Compile Include="SpielObjekt.cs" />
     <EmbeddedResource Include="Oberflaeche.resx">
       <DependentUpon>Oberflaeche.cs</DependentUpon>
     </EmbeddedResource>
@@ -74,6 +75,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="README.md" />
     <None Include="UML_Diagramm.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

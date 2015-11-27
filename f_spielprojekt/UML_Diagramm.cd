@@ -3,22 +3,22 @@
   <Class Name="F_Spielprojekt.Form1">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAGABAAACCAAAQAUAAGAACACABACAAAAQAABAAAAAIQ=</HashCode>
+      <HashCode>AAGABAAACCAAAQAUAAGAACAiABACAAAAQAABAAAAAIQ=</HashCode>
       <FileName>Oberflaeche.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="F_Spielprojekt.SpielObjekte">
+  <Class Name="F_Spielprojekt.SpielObjekt">
     <Position X="3.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAEAAAAxAAAAAA=</HashCode>
-      <FileName>SpielObjekte.cs</FileName>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAEAAAABAAAAAA=</HashCode>
+      <FileName>SpielObjekt.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="F_Spielprojekt.Personen">
+  <Class Name="F_Spielprojekt.Person">
     <Position X="4.25" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Personen.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Person.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="F_Spielprojekt.Optionen">
@@ -42,18 +42,25 @@
       <FileName>Spieler.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="F_Spielprojekt.Haeuser">
+  <Class Name="F_Spielprojekt.Haus">
     <Position X="2.25" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAQAAAAAAAA=</HashCode>
-      <FileName>Haeuser.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Haus.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Enum Name="F_Spielprojekt.Farben">
+  <Class Name="F_Spielprojekt.Position">
+    <Position X="9.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAABAAAAAAwAAAAAAAAAAAAAAAwAAAAAA=</HashCode>
+      <FileName>Position.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="F_Spielprojekt.Farbe">
     <Position X="7.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AwAAgAAAAAAEAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
-      <FileName>Farben.cs</FileName>
+      <FileName>Farbe.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />

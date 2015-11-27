@@ -5,10 +5,10 @@ using System.Text;
 
 namespace F_Spielprojekt
 {
-    public class Haeuser : SpielObjekte
+    public class Haus : SpielObjekt
     {
 
-        public Haeuser(int farbe, int posX, int posY) : base (farbe, posX, posY)
+        public Haus(Position meinePosition, int farbe) : base (meinePosition, farbe)
         {
 
         }

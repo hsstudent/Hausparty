@@ -11,12 +11,14 @@ namespace F_Spielprojekt
 {
     public partial class Form1 : Form
     {
-        private List<Personen> personen = new List<Personen>(); // Liste für den Hauptweg
+        private List<Person> personen = new List<Person>(); // Liste für den Hauptweg
         private bool i1 = true;                                 // Wegpunkgt gesetzt
         private bool i2 = true;
         private bool i3 = true;
         private bool i4 = true;
         private bool i5 = true;
+
+        private int zaehler = 0;                                    // Nach jedem 10 Interval, soll ein neues Männchen genertiert werden
         
         public Form1()
         {
@@ -25,26 +27,33 @@ namespace F_Spielprojekt
 
         private void bStart_Click(object sender, EventArgs e)
         {
-            bOptionen.Hide();                                  // Buttons ausblenden
+            bOptionen.Hide();                                   // Buttons ausblenden
             bHighscore.Hide();
             bStart.Hide();
 
-            pB1.Enabled = true;
+            pB1.Enabled = true;                                 // Wegbuttons aktivieren
             pB2.Enabled = true;
             pB3.Enabled = true;
             pB4.Enabled = true;
             pB5.Enabled = true;
 
-            Timer Timer1 = new Timer();                        // Timer initialisieren
-            Timer1.Interval = 1000;                            // Timer Intervall festlegen
-            Timer1.Start();                                    
+            Timer Timer1 = new Timer();                         // Timer initialisieren
+            Timer1.Interval = 1000;                             // Timer Intervall festlegen
+            Timer1.Start();                                       
             Timer1.Tick += new EventHandler(OnTickEvent);
 
         }
 
         private void OnTickEvent(Object myObject, EventArgs myEventArgs)
         {
-
+            foreach (Person person in personen)
+            {
+                person.PosX += 10;
+            }
+            if (zaehler == 10)
+            {
+                Person meinePerson = new Person(Position.StartPosition, );
+            }
         }
 
         private void pB1_Click(object sender, EventArgs e)
