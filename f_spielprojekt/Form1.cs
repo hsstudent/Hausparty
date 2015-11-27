@@ -18,6 +18,8 @@ namespace F_Spielprojekt
         private bool i4 = true;
         private bool i5 = true;
 
+        Timer Timer1;
+
         private int zaehler = 1;                                    // Nach jedem 10 Interval, soll ein neues Männchen genertiert werden
         
         public Form1()
@@ -37,7 +39,7 @@ namespace F_Spielprojekt
             pB4.Enabled = true;
             pB5.Enabled = true;
 
-            Timer Timer1 = new Timer();                         // Timer initialisieren
+            Timer1 = new Timer();                         // Timer initialisieren
             Timer1.Interval = 1000;                             // Timer Intervall festlegen
             Timer1.Start();                                       
             Timer1.Tick += new EventHandler(OnTickEvent);
@@ -50,25 +52,39 @@ namespace F_Spielprojekt
 
             foreach (Person person in personen)
             {
-                person.MeinePosition.PosX += 10;
+                person.MeinBild.Location = new Point(person.MeinBild.Location.X+5, person.MeinBild.Location.Y); // Bild bewegen
             }
+
             if (zaehler == 10)
             {
+                zaehler = 1;
                 Person meinePerson = new Person(Position.StartPosition, zufallsFarbe(), this);
+                personen.Add(meinePerson);
+
                 pBPerson = new PictureBox();
+                meinePerson.MeinBild = pBPerson;
+
                 //
                 // pBPerson
                 //
-                pBPerson.Enabled = false;
-                pBPerson.Image = ((System.Drawing.Image)(resources.GetObject("pB5.Image")));
-                pBPerson.Margin = new System.Windows.Forms.Padding(2);
-                pBPerson.Location = new System.Drawing.Point(Position.StartPosition.PosX, Position.StartPosition.PosY);
-                pBPerson.Name = "pBPerson" + personen.Count.ToString();
-                pBPerson.Size = new System.Drawing.Size(34, 41);
-                pBPerson.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 
-                meinePerson.MeinBild = pBPerson;
-                personen.Add(meinePerson);
+                ((ISupportInitialize)(pBPerson)).BeginInit();
+                this.SuspendLayout();
+
+                pBPerson.Enabled = false;
+                pBPerson.Image = Properties.Resources.StraßeGeradeButton;
+                pBPerson.Margin = new Padding(2);
+                pBPerson.Location = new Point(Position.StartPosition.PosX, Position.StartPosition.PosY);
+                pBPerson.Name = "pBPerson" + personen.Count.ToString();
+                pBPerson.Size = new Size(34, 41);
+                pBPerson.SizeMode = PictureBoxSizeMode.StretchImage;
+
+                Controls.Add(pBPerson);
+
+                ((System.ComponentModel.ISupportInitialize)(this.pBPerson)).EndInit();
+                this.ResumeLayout(false);
+
+                Timer1.Interval--;
             }
         }
 
@@ -90,12 +106,12 @@ namespace F_Spielprojekt
 
         private void pB1_Click(object sender, EventArgs e)
         {
-            if (i1 == true)
+            if (i1)
             {
                 pB1.Image = F_Spielprojekt.Properties.Resources.StraßeKurfeButton;
                 i1 = false;
             }
-            else if (i1 == false)
+            else
             {
                 pB1.Image = F_Spielprojekt.Properties.Resources.StraßeGeradeButton;
                 i1 = true;
@@ -104,12 +120,12 @@ namespace F_Spielprojekt
 
         private void pB2_Click(object sender, EventArgs e)
         {
-            if (i2 == true)
+            if (i2)
             {
                 pB2.Image = F_Spielprojekt.Properties.Resources.StraßeKurfeButton;
                 i2 = false;
             }
-            else if (i2 == false)
+            else
             {
                 pB2.Image = F_Spielprojekt.Properties.Resources.StraßeGeradeButton;
                 i2 = true;
@@ -118,12 +134,12 @@ namespace F_Spielprojekt
 
         private void pB3_Click(object sender, EventArgs e)
         {
-            if (i3 == true)
+            if (i3)
             {
                 pB3.Image = F_Spielprojekt.Properties.Resources.StraßeKurfeButton;
                 i3 = false;
             }
-            else if (i3 == false)
+            else 
             {
                 pB3.Image = F_Spielprojekt.Properties.Resources.StraßeGeradeButton;
                 i3 = true;
@@ -132,12 +148,12 @@ namespace F_Spielprojekt
 
         private void pB4_Click(object sender, EventArgs e)
         {
-            if (i4 == true)
+            if (i4)
             {
                 pB4.Image = F_Spielprojekt.Properties.Resources.StraßeKurfeButton;
                 i4 = false;
             }
-            else if (i4 == false)
+            else
             {
                 pB4.Image = F_Spielprojekt.Properties.Resources.StraßeGeradeButton;
                 i4 = true;
@@ -146,12 +162,12 @@ namespace F_Spielprojekt
 
         private void pB5_Click(object sender, EventArgs e)
         {
-            if (i5 == true)
+            if (i5)
             {
                 pB5.Image = F_Spielprojekt.Properties.Resources.StraßeKurfeButton;
                 i5 = false;
             }
-            else if (i5 == false)
+            else 
             {
                 pB5.Image = F_Spielprojekt.Properties.Resources.StraßeGeradeButton;
                 i5 = true;

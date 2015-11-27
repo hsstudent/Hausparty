@@ -8,6 +8,16 @@
         private System.ComponentModel.IContainer components = null;
         System.ComponentModel.ComponentResourceManager resources;
 
+        private System.Windows.Forms.Button bStart;
+        private System.Windows.Forms.Button bOptionen;
+        private System.Windows.Forms.Button bHighscore;
+        private System.Windows.Forms.PictureBox pB1;
+        private System.Windows.Forms.PictureBox pB2;
+        private System.Windows.Forms.PictureBox pB3;
+        private System.Windows.Forms.PictureBox pB4;
+        private System.Windows.Forms.PictureBox pB5;
+        private System.Windows.Forms.PictureBox pBPerson;
+
         /// <summary>
         /// Verwendete Ressourcen bereinigen.
         /// </summary>
@@ -29,21 +39,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+
             this.bStart = new System.Windows.Forms.Button();
             this.bOptionen = new System.Windows.Forms.Button();
             this.bHighscore = new System.Windows.Forms.Button();
+
             this.pB1 = new System.Windows.Forms.PictureBox();
             this.pB2 = new System.Windows.Forms.PictureBox();
             this.pB3 = new System.Windows.Forms.PictureBox();
             this.pB4 = new System.Windows.Forms.PictureBox();
             this.pB5 = new System.Windows.Forms.PictureBox();
+
             ((System.ComponentModel.ISupportInitialize)(this.pB1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB5)).BeginInit();
+
             this.SuspendLayout();
+
             // 
             // bStart
             // 
@@ -178,16 +193,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button bStart;
-        private System.Windows.Forms.Button bOptionen;
-        private System.Windows.Forms.Button bHighscore;
-        private System.Windows.Forms.PictureBox pB1;
-        private System.Windows.Forms.PictureBox pB2;
-        private System.Windows.Forms.PictureBox pB3;
-        private System.Windows.Forms.PictureBox pB4;
-        private System.Windows.Forms.PictureBox pB5;
-        private System.Windows.Forms.PictureBox pBPerson;
     }
 }
 
