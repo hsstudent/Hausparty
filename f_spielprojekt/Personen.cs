@@ -10,6 +10,7 @@ namespace F_Spielprojekt
         public Personen(int farbe, int posX, int posY)
             : base (farbe, posX, posY)
         {
+
         }
     
         /*public void Laufen()

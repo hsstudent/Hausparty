@@ -7,6 +7,11 @@ namespace F_Spielprojekt
 {
     public class Haeuser : SpielObjekte
     {
+
+        public Haeuser(int farbe, int posX, int posY) : base (farbe, posX, posY)
+        {
+
+        }
         /*private int wegzumhaus;
 
         public event EventHandler Haus_Arrived;
