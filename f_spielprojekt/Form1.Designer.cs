@@ -1,4 +1,6 @@
-﻿namespace F_Spielprojekt
+﻿using System.Windows.Forms;
+
+namespace F_Spielprojekt
 {
     partial class Form1
     {
@@ -11,12 +13,91 @@
         private System.Windows.Forms.Button bStart;
         private System.Windows.Forms.Button bOptionen;
         private System.Windows.Forms.Button bHighscore;
-        private System.Windows.Forms.PictureBox pB1;
-        private System.Windows.Forms.PictureBox pB2;
-        private System.Windows.Forms.PictureBox pB3;
-        private System.Windows.Forms.PictureBox pB4;
-        private System.Windows.Forms.PictureBox pB5;
-        private System.Windows.Forms.PictureBox pBPerson;
+        private PictureBox1 pB1;
+        private PictureBox1 pB2;
+        private PictureBox1 pB3;
+        private PictureBox1 pB4;
+        private PictureBox1 pB5;
+        private PictureBox1 pBPerson;
+
+        public PictureBox1 PB1
+        {
+            get
+            {
+                return pB1;
+            }
+
+            set
+            {
+                pB1 = value;
+            }
+        }
+
+        public PictureBox1 PB2
+        {
+            get
+            {
+                return pB2;
+            }
+
+            set
+            {
+                pB2 = value;
+            }
+        }
+
+        public PictureBox1 PB3
+        {
+            get
+            {
+                return pB3;
+            }
+
+            set
+            {
+                pB3 = value;
+            }
+        }
+
+        public PictureBox1 PB4
+        {
+            get
+            {
+                return pB4;
+            }
+
+            set
+            {
+                pB4 = value;
+            }
+        }
+
+        public PictureBox1 PB5
+        {
+            get
+            {
+                return pB5;
+            }
+
+            set
+            {
+                pB5 = value;
+            }
+        }
+
+        public PictureBox1 PBPerson
+        {
+            get
+            {
+                return pBPerson;
+            }
+
+            set
+            {
+                pBPerson = value;
+            }
+        }
+
 
         /// <summary>
         /// Verwendete Ressourcen bereinigen.
@@ -45,11 +126,11 @@
             this.bOptionen = new System.Windows.Forms.Button();
             this.bHighscore = new System.Windows.Forms.Button();
 
-            this.pB1 = new System.Windows.Forms.PictureBox();
-            this.pB2 = new System.Windows.Forms.PictureBox();
-            this.pB3 = new System.Windows.Forms.PictureBox();
-            this.pB4 = new System.Windows.Forms.PictureBox();
-            this.pB5 = new System.Windows.Forms.PictureBox();
+            this.pB1 = new PictureBox1();
+            this.pB2 = new PictureBox1();
+            this.pB3 = new PictureBox1();
+            this.pB4 = new PictureBox1();
+            this.pB5 = new PictureBox1();
 
             ((System.ComponentModel.ISupportInitialize)(this.pB1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB2)).BeginInit();
@@ -95,7 +176,7 @@
             this.pB1.Enabled = false;
             this.pB1.Image = global::F_Spielprojekt.Properties.Resources.StraßeGeradeButton;
             this.pB1.InitialImage = null;
-            this.pB1.Location = new System.Drawing.Point(Position.Weiche1.PosX, Position.Weiche1.PosY);
+            this.pB1.Location = new System.Drawing.Point(Punkt.Weiche1.X, Punkt.Weiche1.Y);
             this.pB1.Margin = new System.Windows.Forms.Padding(2);
             this.pB1.Name = "pB1";
             this.pB1.Size = new System.Drawing.Size(36, 41);
@@ -109,7 +190,7 @@
             this.pB2.Enabled = false;
             this.pB2.Image = ((System.Drawing.Image)(resources.GetObject("pB2.Image")));
             this.pB2.InitialImage = null;
-            this.pB2.Location = new System.Drawing.Point(Position.Weiche2.PosX, Position.Weiche2.PosY);
+            this.pB2.Location = new System.Drawing.Point(Punkt.Weiche2.X, Punkt.Weiche2.Y);
             this.pB2.Margin = new System.Windows.Forms.Padding(2);
             this.pB2.Name = "pB2";
             this.pB2.Size = new System.Drawing.Size(36, 41);
@@ -123,7 +204,7 @@
             this.pB3.Enabled = false;
             this.pB3.Image = ((System.Drawing.Image)(resources.GetObject("pB3.Image")));
             this.pB3.InitialImage = null;
-            this.pB3.Location = new System.Drawing.Point(Position.Weiche3.PosX, Position.Weiche3.PosY);
+            this.pB3.Location = new System.Drawing.Point(Punkt.Weiche3.X, Punkt.Weiche3.Y);
             this.pB3.Margin = new System.Windows.Forms.Padding(2);
             this.pB3.Name = "pB3";
             this.pB3.Size = new System.Drawing.Size(36, 41);
@@ -137,7 +218,7 @@
             this.pB4.Enabled = false;
             this.pB4.Image = ((System.Drawing.Image)(resources.GetObject("pB4.Image")));
             this.pB4.InitialImage = null;
-            this.pB4.Location = new System.Drawing.Point(Position.Weiche4.PosX, Position.Weiche4.PosY);
+            this.pB4.Location = new System.Drawing.Point(Punkt.Weiche4.X, Punkt.Weiche4.Y);
             this.pB4.Margin = new System.Windows.Forms.Padding(2);
             this.pB4.Name = "pB4";
             this.pB4.Size = new System.Drawing.Size(35, 41);
@@ -151,7 +232,7 @@
             this.pB5.Enabled = false;
             this.pB5.Image = ((System.Drawing.Image)(resources.GetObject("pB5.Image")));
             this.pB5.InitialImage = null;
-            this.pB5.Location = new System.Drawing.Point(Position.Weiche5.PosX, Position.Weiche5.PosY);
+            this.pB5.Location = new System.Drawing.Point(Punkt.Weiche5.X, Punkt.Weiche5.Y);
             this.pB5.Margin = new System.Windows.Forms.Padding(2);
             this.pB5.Name = "pB5";
             this.pB5.Size = new System.Drawing.Size(34, 41);

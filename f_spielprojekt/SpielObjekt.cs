@@ -9,28 +9,16 @@ namespace F_Spielprojekt
     public abstract class SpielObjekt
     {
         protected Farbe farbe;
-        protected Position meinePosition;
-        private PictureBox meinBild;
-        protected Form1 meineForm;
+        protected PictureBox meinBild;
 
-        public SpielObjekt(Position meinePosition, Farbe farbe, Form1 meineForm)
+        public SpielObjekt(Farbe farbe)
         {
             this.farbe = farbe;
-            this.meinePosition = meinePosition;
-            this.meineForm = meineForm;
         }
 
         public Farbe Farbe
         {
             get{ return farbe; }
-        }
-
-        public Position MeinePosition
-        {
-            get
-            {
-                return meinePosition;
-            }
         }
 
         public PictureBox MeinBild

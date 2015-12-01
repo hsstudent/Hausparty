@@ -10,17 +10,13 @@ using System.Windows.Forms;
 namespace F_Spielprojekt
 {
     public partial class Form1 : Form
-    {
-        private List<Person> personen = new List<Person>(); // Liste für den Hauptweg
-        private bool i1 = true;                                 // Wegpunkgt gesetzt
-        private bool i2 = true;
-        private bool i3 = true;
-        private bool i4 = true;
-        private bool i5 = true;
+    { 
+
+        Karte meineKarte;
 
         Timer Timer1;
 
-        private int zaehler = 1;                                    // Nach jedem 10 Interval, soll ein neues Männchen genertiert werden
+        private int zaehler = 1;                            // Nach jedem 10 Interval, soll ein neues Männchen genertiert werden
         
         public Form1()
         {
@@ -39,53 +35,54 @@ namespace F_Spielprojekt
             pB4.Enabled = true;
             pB5.Enabled = true;
 
-            Timer1 = new Timer();                         // Timer initialisieren
+            Timer1 = new Timer();                               // Timer initialisieren
             Timer1.Interval = 1000;                             // Timer Intervall festlegen
             Timer1.Start();                                       
             Timer1.Tick += new EventHandler(OnTickEvent);
 
+            meineKarte = new Karte(this);
         }
 
         private void OnTickEvent(Object myObject, EventArgs myEventArgs)
         {
             zaehler++;
 
-            foreach (Person person in personen)
-            {
-                person.MeinBild.Location = new Point(person.MeinBild.Location.X+5, person.MeinBild.Location.Y); // Bild bewegen
-            }
+            meineKarte.streckeAendern();
 
             if (zaehler == 10)
             {
-                zaehler = 1;
-                Person meinePerson = new Person(Position.StartPosition, zufallsFarbe(), this);
-                personen.Add(meinePerson);
-
-                pBPerson = new PictureBox();
-                meinePerson.MeinBild = pBPerson;
-
-                //
-                // pBPerson
-                //
-
-                ((ISupportInitialize)(pBPerson)).BeginInit();
-                this.SuspendLayout();
-
-                pBPerson.Enabled = false;
-                pBPerson.Image = Properties.Resources.StraßeGeradeButton;
-                pBPerson.Margin = new Padding(2);
-                pBPerson.Location = new Point(Position.StartPosition.PosX, Position.StartPosition.PosY);
-                pBPerson.Name = "pBPerson" + personen.Count.ToString();
-                pBPerson.Size = new Size(34, 41);
-                pBPerson.SizeMode = PictureBoxSizeMode.StretchImage;
-
-                Controls.Add(pBPerson);
-
-                ((System.ComponentModel.ISupportInitialize)(this.pBPerson)).EndInit();
-                this.ResumeLayout(false);
-
-                Timer1.Interval--;
+                neueFigur();
             }
+        }
+
+        private void neueFigur()
+        {
+            zaehler = 1;
+            Figur meinePerson = new Figur(zufallsFarbe(), meineKarte);
+            meineKarte.addFigur(meinePerson);
+
+            pBPerson = new PictureBox1();
+            meinePerson.MeinBild = pBPerson;
+
+            //
+            // pBPerson
+            //
+
+            ((ISupportInitialize)(pBPerson)).BeginInit();
+            this.SuspendLayout();
+
+            pBPerson.Enabled = false;
+            pBPerson.Image = Properties.Resources.StraßeGeradeButton;
+            pBPerson.Margin = new Padding(2);
+            pBPerson.Location = new Point(Punkt.StartPosition.X, Punkt.StartPosition.Y);
+            pBPerson.Name = "pBPerson" + meineKarte.Figuren.Count.ToString();
+            pBPerson.Size = new Size(34, 41);
+            pBPerson.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            Controls.Add(pBPerson);
+
+            ((System.ComponentModel.ISupportInitialize)(this.pBPerson)).EndInit();
+            this.ResumeLayout(false);
         }
 
         private Farbe zufallsFarbe()
@@ -106,71 +103,71 @@ namespace F_Spielprojekt
 
         private void pB1_Click(object sender, EventArgs e)
         {
-            if (i1)
+            if (pB1.Wegpunkt)
             {
                 pB1.Image = F_Spielprojekt.Properties.Resources.StraßeKurfeButton;
-                i1 = false;
+                pB1.Wegpunkt = false;
             }
             else
             {
                 pB1.Image = F_Spielprojekt.Properties.Resources.StraßeGeradeButton;
-                i1 = true;
+                pB1.Wegpunkt = true;
             }
         }
 
         private void pB2_Click(object sender, EventArgs e)
         {
-            if (i2)
+            if (pB2.Wegpunkt)
             {
                 pB2.Image = F_Spielprojekt.Properties.Resources.StraßeKurfeButton;
-                i2 = false;
+                pB2.Wegpunkt = false;
             }
             else
             {
                 pB2.Image = F_Spielprojekt.Properties.Resources.StraßeGeradeButton;
-                i2 = true;
+                pB2.Wegpunkt = true;
             }
         }
 
         private void pB3_Click(object sender, EventArgs e)
         {
-            if (i3)
+            if (pB3.Wegpunkt)
             {
                 pB3.Image = F_Spielprojekt.Properties.Resources.StraßeKurfeButton;
-                i3 = false;
+                pB3.Wegpunkt = false;
             }
             else 
             {
                 pB3.Image = F_Spielprojekt.Properties.Resources.StraßeGeradeButton;
-                i3 = true;
+                pB3.Wegpunkt = true;
             }
         }
 
         private void pB4_Click(object sender, EventArgs e)
         {
-            if (i4)
+            if (pB4.Wegpunkt)
             {
                 pB4.Image = F_Spielprojekt.Properties.Resources.StraßeKurfeButton;
-                i4 = false;
+                pB4.Wegpunkt = false;
             }
             else
             {
                 pB4.Image = F_Spielprojekt.Properties.Resources.StraßeGeradeButton;
-                i4 = true;
+                pB4.Wegpunkt = true;
             }
         }
 
         private void pB5_Click(object sender, EventArgs e)
         {
-            if (i5)
+            if (pB5.Wegpunkt)
             {
                 pB5.Image = F_Spielprojekt.Properties.Resources.StraßeKurfeButton;
-                i5 = false;
+                pB5.Wegpunkt = false;
             }
             else 
             {
                 pB5.Image = F_Spielprojekt.Properties.Resources.StraßeGeradeButton;
-                i5 = true;
+                pB5.Wegpunkt = true;
             }
         }
 
