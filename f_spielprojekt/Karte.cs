@@ -12,6 +12,7 @@ namespace F_Spielprojekt
         private List<Figur> figuren = new List<Figur>();
         private Form1 form;
 
+
         public Karte(Form1 form)
         {
             this.form = form;
@@ -103,22 +104,24 @@ namespace F_Spielprojekt
                             figuren[i].Schritt = 0;
                             break;
                         }
-                        else if(j == strecken.Count)
+                        else if(j+1 == strecken.Count)
                         {
                             // Ende der Strecke
-                            figuren.RemoveAt(i);
-                            figuren[i] = null;
+
                             // Farbe überprüfen
                             if(strecken[j].Haus.Farbe == figuren[i].Farbe)
                             {
                                 // + Punkt
+                                form.Punkte++;
                             }
                             else
                             {
+                                form.Punkte--;
                                 // - Punkt
                             }
-                        }
-                        
+                            figuren[i].MeinBild.Hide();
+                            figuren.RemoveAt(i);
+                        }    
                     }
                 }
             }

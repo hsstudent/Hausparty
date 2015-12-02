@@ -14,10 +14,25 @@ namespace F_Spielprojekt
 
         Karte meineKarte;
 
+        int punkte = 0;
+
         Timer Timer1;
 
         private int zaehler = 1;                            // Nach jedem 10 Interval, soll ein neues Männchen genertiert werden
-        
+
+        public int Punkte
+        {
+            get
+            {
+                return punkte;
+            }
+
+            set
+            {
+                punkte = value;
+            }
+        }
+
         public Form1()
         {
             InitializeComponent();
@@ -36,7 +51,7 @@ namespace F_Spielprojekt
             pB5.Enabled = true;
 
             Timer1 = new Timer();                               // Timer initialisieren
-            Timer1.Interval = 200;                             // Timer Intervall festlegen
+            Timer1.Interval = 10;                             // Timer Intervall festlegen
             Timer1.Start();                                       
             Timer1.Tick += new EventHandler(OnTickEvent);
 
@@ -196,7 +211,9 @@ namespace F_Spielprojekt
 
         private void Form1_Click(object sender, MouseEventArgs e)
         {
+            #if Debug
             MessageBox.Show(e.X.ToString()+ " " + e.Y.ToString());
+            #endif
         }
     }
 }

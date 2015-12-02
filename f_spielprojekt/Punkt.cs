@@ -21,7 +21,7 @@ namespace F_Spielprojekt
         private static Punkt weiche2 = new Punkt(286, 236);
         private static Punkt weiche3 = new Punkt(422, 236);
         private static Punkt weiche4 = new Punkt(562, 236);
-        private static Punkt weiche5 = new Punkt(699, 236);
+        private static Punkt weiche5 = new Punkt(700, 236);
 
         public static Punkt haus1 = new Punkt(150, 112);
         public static Punkt haus2 = new Punkt(286, 112);
