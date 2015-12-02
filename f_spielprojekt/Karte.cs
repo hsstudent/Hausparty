@@ -7,7 +7,7 @@ namespace F_Spielprojekt
 {
     public class Karte
     {
-        public static int bewGenauigkeit = 30;
+        public static int bewGenauigkeit = 10;
         List<Strecke> strecken = new List<Strecke>();
         private List<Figur> figuren = new List<Figur>();
         private Form1 form;
@@ -17,39 +17,35 @@ namespace F_Spielprojekt
             this.form = form;
 
             Strecke strecke1 = new Strecke(Punkt.StartPosition, Punkt.Weiche1);
-            strecke1.PB = form.PB1;
             strecken.Add(strecke1);
+            Strecke strecke7 = new Strecke(Punkt.Weiche1, Punkt.haus1);
+            strecken.Add(strecke7);
+
             Strecke strecke2 = new Strecke(Punkt.Weiche1, Punkt.Weiche2);
-            strecke2.PB = form.PB2;
             strecken.Add(strecke2);
+            Strecke strecke8 = new Strecke(Punkt.Weiche2, Punkt.haus2);
+            strecken.Add(strecke8);
             Strecke strecke3 = new Strecke(Punkt.Weiche2, Punkt.Weiche3);
-            strecke3.PB = form.PB3;
             strecken.Add(strecke3);
+            Strecke strecke9 = new Strecke(Punkt.Weiche3, Punkt.haus3);
+            strecken.Add(strecke9);
             Strecke strecke4 = new Strecke(Punkt.Weiche3, Punkt.Weiche4);
-            strecke4.PB = form.PB4;
             strecken.Add(strecke4);
+            Strecke strecke10 = new Strecke(Punkt.Weiche4, Punkt.haus4);
+            strecken.Add(strecke10);
             Strecke strecke5 = new Strecke(Punkt.Weiche4, Punkt.Weiche5);
-            strecke5.PB = form.PB5;
             strecken.Add(strecke5);
+            Strecke strecke11 = new Strecke(Punkt.Weiche5, Punkt.haus5);
+            strecken.Add(strecke11);
             Strecke strecke6 = new Strecke(Punkt.Weiche5, Punkt.EndPosition);
-            strecke6.PB = form.PBPerson;
             strecken.Add(strecke6);
 
-            Strecke strecke7 = new Strecke(Punkt.Weiche1, Punkt.haus1);
-            strecke7.PB = form.PBPerson;
-            strecken.Add(strecke7);
-            Strecke strecke8 = new Strecke(Punkt.Weiche2, Punkt.haus2);
-            strecke8.PB = form.PBPerson;
-            strecken.Add(strecke8);
-            Strecke strecke9 = new Strecke(Punkt.Weiche3, Punkt.haus3);
-            strecke9.PB = form.PBPerson;
-            strecken.Add(strecke9);
-            Strecke strecke10 = new Strecke(Punkt.Weiche4, Punkt.haus4);
-            strecke10.PB = form.PBPerson;
-            strecken.Add(strecke10);
-            Strecke strecke11 = new Strecke(Punkt.Weiche5, Punkt.haus5);
-            strecke11.PB = form.PBPerson;
-            strecken.Add(strecke11);
+            strecke7.PB = form.PB1;
+            strecke8.PB = form.PB2;
+            strecke9.PB = form.PB3;
+            strecke10.PB = form.PB4;
+            strecke11.PB = form.PB5;
+
         }
 
         public List<Figur> Figuren
@@ -65,6 +61,19 @@ namespace F_Spielprojekt
             }
         }
 
+        public List<Strecke> Strecken
+        {
+            get
+            {
+                return strecken;
+            }
+
+            set
+            {
+                strecken = value;
+            }
+        }
+
         public void streckeAendern()
         {
             for(int i = 0; i < figuren.Count; i++)
@@ -75,20 +84,41 @@ namespace F_Spielprojekt
                 }
                 else
                 {
-                    foreach (Strecke strecke in strecken)
+                    for (int j = 0; j < strecken.Count; j++)
                     {
-                        if (figuren[i].MeineStrecke.PB.Wegpunkt && strecke.Punkte[0] == figuren[i].MeineStrecke.Punkte[1])
-                        {
-                            figuren[i].MeineStrecke = strecke;
+                        // Strecke und Wegpunkt überprüfen
+                        if (strecken[j].PB != null)
+                        { 
+                            if (strecken[j].PB.Wegpunkt && figuren[i].MeineStrecke.Punkte[1] == strecken[j].Punkte[0])
+                            {
+                                figuren[i].MeineStrecke = strecken[j];
+                                figuren[i].Schritt = 0;
+                                break;
+                            }
                         }
-                        else if (strecke.Punkte[0] == figuren[i].MeineStrecke.Punkte[1])
+                        // Strecke ohne Wegpunkt
+                        else if (strecken[j].Punkte[0] == figuren[i].MeineStrecke.Punkte[1])
                         {
-                            figuren[i].MeineStrecke = strecke;
+                            figuren[i].MeineStrecke = strecken[j];
+                            figuren[i].Schritt = 0;
+                            break;
                         }
-                        else
+                        else if(j == strecken.Count)
                         {
+                            // Ende der Strecke
                             figuren.RemoveAt(i);
+                            figuren[i] = null;
+                            // Farbe überprüfen
+                            if(strecken[j].Haus.Farbe == figuren[i].Farbe)
+                            {
+                                // + Punkt
+                            }
+                            else
+                            {
+                                // - Punkt
+                            }
                         }
+                        
                     }
                 }
             }

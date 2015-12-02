@@ -9,7 +9,7 @@ namespace F_Spielprojekt
     public class Figur : SpielObjekt
     {
         private Strecke meineStrecke;
-        private int schritt = 0;
+        private int schritt;
         public Figur(Farbe farbe, Karte meineKarte)
             : base (farbe)
         {
@@ -29,11 +29,24 @@ namespace F_Spielprojekt
             }
         }
 
+        public int Schritt
+        {
+            get
+            {
+                return schritt;
+            }
+
+            set
+            {
+                schritt = value;
+            }
+        }
+
         public bool laufeStrecke()
         {
-            if(meineStrecke.Schritte != schritt)
+            if(meineStrecke.Genauigkeit != schritt)
             {
-                MeinBild.Location = new System.Drawing.Point(meinBild.Location.X + meineStrecke.Schritte, meinBild.Location.Y);
+                MeinBild.Location = new System.Drawing.Point(meinBild.Location.X + meineStrecke.Schritte_X, meinBild.Location.Y - meineStrecke.Schritte_Y);
                 schritt += 1;
                 return true;
             }

@@ -12,34 +12,9 @@ namespace F_Spielprojekt
         PictureBox1 pB;
         Haus haus;
 
-        int laenge;
-        int schritte;
-
-        public int Laenge
-        {
-            get
-            {
-                return laenge;
-            }
-
-            set
-            {
-                laenge = value;
-            }
-        }
-
-        public int Schritte
-        {
-            get
-            {
-                return schritte;
-            }
-
-            set
-            {
-                schritte = value;
-            }
-        }
+        int laenge_X, laenge_Y;
+        int schritte_X, schritte_Y;
+        int genauigkeit = Karte.bewGenauigkeit;
 
         public List<Punkt> Punkte
         {
@@ -67,18 +42,105 @@ namespace F_Spielprojekt
             }
         }
 
+        public Haus Haus
+        {
+            get
+            {
+                return haus;
+            }
+
+            set
+            {
+                haus = value;
+            }
+        }
+
+
+        public int Laenge_X
+        {
+            get
+            {
+                return laenge_X;
+            }
+
+            set
+            {
+                laenge_X = value;
+            }
+        }
+
+
+        public int Schritte_X
+        {
+            get
+            {
+                return schritte_X;
+            }
+
+            set
+            {
+                schritte_X = value;
+            }
+        }
+
+        public int Schritte_Y
+        {
+            get
+            {
+                return schritte_Y;
+            }
+
+            set
+            {
+                schritte_Y = value;
+            }
+        }
+
+        public int Laenge_Y
+        {
+            get
+            {
+                return laenge_Y;
+            }
+
+            set
+            {
+                laenge_Y = value;
+            }
+        }
+
+        public int Genauigkeit
+        {
+            get
+            {
+                return genauigkeit;
+            }
+
+            set
+            {
+                genauigkeit = value;
+            }
+        }
+
         public Strecke(Punkt a, Punkt b)
         {
-            Laenge = b.X - a.X;
-            if (Laenge == 0)
+
+            laenge_X = Math.Abs(b.X - a.X);
+            laenge_Y = Math.Abs(b.Y - a.Y);
+            punkte.Add(a);
+            punkte.Add(b);
+
+            while(laenge_X % genauigkeit != 0)
             {
-                Laenge = b.Y - a.Y;
+                genauigkeit -= 1;
             }
-            while(Schritte % Karte.bewGenauigkeit != 0)
+            schritte_X = laenge_X / genauigkeit;
+
+            while (laenge_Y % genauigkeit != 0)
             {
-                Karte.bewGenauigkeit -= 1;
+                genauigkeit -= 1;
             }
-            Schritte = Laenge / Karte.bewGenauigkeit;
+            schritte_Y = laenge_Y / genauigkeit;
         }
     }
 }

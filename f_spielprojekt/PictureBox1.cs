@@ -7,7 +7,7 @@ namespace F_Spielprojekt
 {
     public class PictureBox1 : System.Windows.Forms.PictureBox
     {
-        private bool wegpunkt;
+        private bool wegpunkt = false;
 
         public bool Wegpunkt
         {

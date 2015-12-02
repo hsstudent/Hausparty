@@ -36,11 +36,23 @@ namespace F_Spielprojekt
             pB5.Enabled = true;
 
             Timer1 = new Timer();                               // Timer initialisieren
-            Timer1.Interval = 1000;                             // Timer Intervall festlegen
+            Timer1.Interval = 200;                             // Timer Intervall festlegen
             Timer1.Start();                                       
             Timer1.Tick += new EventHandler(OnTickEvent);
 
             meineKarte = new Karte(this);
+
+            Haus haus1 = new Haus(Farbe.Blau);
+            Haus haus2 = new Haus(Farbe.Gelb);
+            Haus haus3 = new Haus(Farbe.Grün);
+            Haus haus4 = new Haus(Farbe.Rot);
+            Haus haus5 = new Haus(Farbe.Schwarz);
+
+            meineKarte.Strecken[6].Haus = haus1;
+            meineKarte.Strecken[7].Haus = haus2;
+            meineKarte.Strecken[8].Haus = haus3;
+            meineKarte.Strecken[9].Haus = haus4;
+            meineKarte.Strecken[10].Haus = haus5;
         }
 
         private void OnTickEvent(Object myObject, EventArgs myEventArgs)
@@ -60,6 +72,7 @@ namespace F_Spielprojekt
             zaehler = 1;
             Figur meinePerson = new Figur(zufallsFarbe(), meineKarte);
             meineKarte.addFigur(meinePerson);
+            meinePerson.MeineStrecke = meineKarte.Strecken[0];
 
             pBPerson = new PictureBox1();
             meinePerson.MeinBild = pBPerson;
@@ -103,71 +116,71 @@ namespace F_Spielprojekt
 
         private void pB1_Click(object sender, EventArgs e)
         {
-            if (pB1.Wegpunkt)
+            if (!pB1.Wegpunkt)
             {
                 pB1.Image = F_Spielprojekt.Properties.Resources.StraßeKurfeButton;
-                pB1.Wegpunkt = false;
+                pB1.Wegpunkt = true;
             }
             else
             {
                 pB1.Image = F_Spielprojekt.Properties.Resources.StraßeGeradeButton;
-                pB1.Wegpunkt = true;
+                pB1.Wegpunkt = false;
             }
         }
 
         private void pB2_Click(object sender, EventArgs e)
         {
-            if (pB2.Wegpunkt)
+            if (!pB2.Wegpunkt)
             {
                 pB2.Image = F_Spielprojekt.Properties.Resources.StraßeKurfeButton;
-                pB2.Wegpunkt = false;
+                pB2.Wegpunkt = true;
             }
             else
             {
                 pB2.Image = F_Spielprojekt.Properties.Resources.StraßeGeradeButton;
-                pB2.Wegpunkt = true;
+                pB2.Wegpunkt = false;
             }
         }
 
         private void pB3_Click(object sender, EventArgs e)
         {
-            if (pB3.Wegpunkt)
+            if (!pB3.Wegpunkt)
             {
                 pB3.Image = F_Spielprojekt.Properties.Resources.StraßeKurfeButton;
-                pB3.Wegpunkt = false;
+                pB3.Wegpunkt = true;
             }
             else 
             {
                 pB3.Image = F_Spielprojekt.Properties.Resources.StraßeGeradeButton;
-                pB3.Wegpunkt = true;
+                pB3.Wegpunkt = false;
             }
         }
 
         private void pB4_Click(object sender, EventArgs e)
         {
-            if (pB4.Wegpunkt)
+            if (!pB4.Wegpunkt)
             {
                 pB4.Image = F_Spielprojekt.Properties.Resources.StraßeKurfeButton;
-                pB4.Wegpunkt = false;
+                pB4.Wegpunkt = true;
             }
             else
             {
                 pB4.Image = F_Spielprojekt.Properties.Resources.StraßeGeradeButton;
-                pB4.Wegpunkt = true;
+                pB4.Wegpunkt = false;
             }
         }
 
         private void pB5_Click(object sender, EventArgs e)
         {
-            if (pB5.Wegpunkt)
+            if (!pB5.Wegpunkt)
             {
                 pB5.Image = F_Spielprojekt.Properties.Resources.StraßeKurfeButton;
-                pB5.Wegpunkt = false;
+                pB5.Wegpunkt = true;
             }
             else 
             {
                 pB5.Image = F_Spielprojekt.Properties.Resources.StraßeGeradeButton;
-                pB5.Wegpunkt = true;
+                pB5.Wegpunkt = false;
             }
         }
 
