@@ -51,9 +51,10 @@ namespace F_Spielprojekt
             pB5.Enabled = true;
 
             Timer1 = new Timer();                               // Timer initialisieren
-            Timer1.Interval = 100;                             // Timer Intervall festlegen
-            Timer1.Start();                                       
+            Timer1.Interval = 1000;                             // Timer Intervall festlegen
+            Timer1.Start();                
             Timer1.Tick += new EventHandler(OnTickEvent);
+            
 
             meineKarte = new Karte(this);
 
@@ -68,6 +69,8 @@ namespace F_Spielprojekt
             meineKarte.Strecken[8].Haus = haus3;
             meineKarte.Strecken[9].Haus = haus4;
             meineKarte.Strecken[10].Haus = haus5;
+
+            neueFigur();                                        //Anfangsmännchen
         }
 
         private void OnTickEvent(Object myObject, EventArgs myEventArgs)
