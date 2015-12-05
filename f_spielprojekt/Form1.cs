@@ -51,7 +51,7 @@ namespace F_Spielprojekt
             pB5.Enabled = true;
 
             Timer1 = new Timer();                               // Timer initialisieren
-            Timer1.Interval = 10;                             // Timer Intervall festlegen
+            Timer1.Interval = 100;                             // Timer Intervall festlegen
             Timer1.Start();                                       
             Timer1.Tick += new EventHandler(OnTickEvent);
 

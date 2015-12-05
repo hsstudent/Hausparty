@@ -94,6 +94,7 @@ namespace F_Spielprojekt
                             {
                                 figuren[i].MeineStrecke = strecken[j];
                                 figuren[i].Schritt = 0;
+                                figuren[i].laufeStrecke();
                                 break;
                             }
                         }
@@ -102,6 +103,7 @@ namespace F_Spielprojekt
                         {
                             figuren[i].MeineStrecke = strecken[j];
                             figuren[i].Schritt = 0;
+                            figuren[i].laufeStrecke();
                             break;
                         }
                         else if(j+1 == strecken.Count)
@@ -120,6 +122,7 @@ namespace F_Spielprojekt
                                 // - Punkt
                             }
                             figuren[i].MeinBild.Hide();
+                            figuren[i] = null;
                             figuren.RemoveAt(i);
                         }    
                     }
