@@ -10,20 +10,18 @@ namespace F_Spielprojekt
         private int x;
         private int y;
 
-        //private delegate positionErreicht;
-        //private event positionErreicht;
-
+        // Positionen nur hier ändern!!!
         private static Punkt startPosition = new Punkt(-25, 236);   // Startposition festlegen
 
         private static Punkt endPosition = new Punkt(780, 236);     // Endposition 
 
-        private static Punkt weiche1 = new Punkt(150, 236);
+        private static Punkt weiche1 = new Punkt(150, 236);         // Position der Weichen
         private static Punkt weiche2 = new Punkt(286, 236);
         private static Punkt weiche3 = new Punkt(422, 236);
         private static Punkt weiche4 = new Punkt(562, 236);
         private static Punkt weiche5 = new Punkt(700, 236);
 
-        public static Punkt haus1 = new Punkt(150, 112);
+        public static Punkt haus1 = new Punkt(150, 112);            // Position der Häuser
         public static Punkt haus2 = new Punkt(286, 112);
         public static Punkt haus3 = new Punkt(422, 112);
         public static Punkt haus4 = new Punkt(562, 112);

@@ -8,8 +8,8 @@ namespace F_Spielprojekt
 {
     public abstract class SpielObjekt
     {
-        protected Farbe farbe;
-        protected PictureBox meinBild;
+        protected Farbe farbe;  
+        protected PictureBox meinBild; // Jedes Spielobjekt hat ein Bild
 
         public SpielObjekt(Farbe farbe)
         {

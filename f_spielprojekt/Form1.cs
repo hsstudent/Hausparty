@@ -12,9 +12,9 @@ namespace F_Spielprojekt
     public partial class Form1 : Form
     { 
 
-        Karte meineKarte;
+        Karte meineKarte;                                   // Die Karte beinhaltet die Strecken
 
-        int punkte = 0;
+        int punkte = 0;                                     // TODO: Punkte muss den Spielern zugeordnet werden
 
         Timer Timer1;
 
@@ -58,12 +58,14 @@ namespace F_Spielprojekt
 
             meineKarte = new Karte(this);
 
+            // Häuser erstellen und Farbe zuweisen
             Haus haus1 = new Haus(Farbe.Blau);
             Haus haus2 = new Haus(Farbe.Gelb);
             Haus haus3 = new Haus(Farbe.Grün);
             Haus haus4 = new Haus(Farbe.Rot);
             Haus haus5 = new Haus(Farbe.Schwarz);
 
+            // Die Strecken bekommen Häuser
             meineKarte.Strecken[6].Haus = haus1;
             meineKarte.Strecken[7].Haus = haus2;
             meineKarte.Strecken[8].Haus = haus3;
@@ -77,10 +79,12 @@ namespace F_Spielprojekt
         {
             zaehler++;
 
+            // Wenn der Timer abläuft, soll die Karte die Strecke ändern
             meineKarte.streckeAendern();
 
             if (zaehler == 10)
             {
+                // Nach jeder 10ten Streckänderung soll eine Figur erstellt werden
                 neueFigur();
             }
         }
@@ -93,12 +97,10 @@ namespace F_Spielprojekt
             meinePerson.MeineStrecke = meineKarte.Strecken[0];
 
             pBPerson = new PictureBox1();
-            meinePerson.MeinBild = pBPerson;
+            meinePerson.MeinBild = pBPerson;    // Die Figur erhält ein Bild auf dem Form
 
-            //
-            // pBPerson
-            //
 
+            // Hier stehen die Bildeinstellung der Figur
             ((ISupportInitialize)(pBPerson)).BeginInit();
             this.SuspendLayout();
 
@@ -110,12 +112,13 @@ namespace F_Spielprojekt
             pBPerson.Size = new Size(34, 41);
             pBPerson.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            Controls.Add(pBPerson);
+            Controls.Add(pBPerson); // Das Bild wird dem Form zugewiesen
 
             ((System.ComponentModel.ISupportInitialize)(this.pBPerson)).EndInit();
             this.ResumeLayout(false);
         }
 
+        // Zufallsfarben
         private Farbe zufallsFarbe()
         {
             int zufallsZahl;
@@ -132,6 +135,7 @@ namespace F_Spielprojekt
             }
         }
 
+        // Hier werden die Weichen behandelt
         private void pB1_Click(object sender, EventArgs e)
         {
             if (!pB1.Wegpunkt)

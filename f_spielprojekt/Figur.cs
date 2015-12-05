@@ -8,12 +8,12 @@ namespace F_Spielprojekt
 {
     public class Figur : SpielObjekt
     {
-        private Strecke meineStrecke;
-        private int schritt;
+        private Strecke meineStrecke;       // Auf dieser Strecke befindet sich die Figur
+        private int schritt;                // Wieviele Schritte ist die Figur auf der Strecke gegangen
         public Figur(Farbe farbe, Karte meineKarte)
             : base (farbe)
         {
-            PictureBox1 meinBild = new PictureBox1();
+            PictureBox1 meinBild = new PictureBox1();   // Bild der Figur
         }
 
         public Strecke MeineStrecke

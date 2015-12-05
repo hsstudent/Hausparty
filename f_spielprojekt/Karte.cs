@@ -17,6 +17,7 @@ namespace F_Spielprojekt
         {
             this.form = form;
 
+            // Die Karte erhält neue Strecken
             Strecke strecke1 = new Strecke(Punkt.StartPosition, Punkt.Weiche1);
             strecken.Add(strecke1);
             Strecke strecke7 = new Strecke(Punkt.Weiche1, Punkt.haus1);
@@ -41,6 +42,7 @@ namespace F_Spielprojekt
             Strecke strecke6 = new Strecke(Punkt.Weiche5, Punkt.EndPosition);
             strecken.Add(strecke6);
 
+            // Die Strecken erhalten Weichen
             strecke7.PB = form.PB1;
             strecke8.PB = form.PB2;
             strecke9.PB = form.PB3;
@@ -79,10 +81,12 @@ namespace F_Spielprojekt
         {
             for(int i = 0; i < figuren.Count; i++)
             {
+                // Die Figuren laufen der Strecke entlang bis zum Ende.
                 if(figuren[i].laufeStrecke())
                 {
 
                 }
+                // Ist die Strecke abgelaufen, soll die Figur gelöscht werden oder eine neue Strecke erhalten
                 else
                 {
                     for (int j = 0; j < strecken.Count; j++)
@@ -106,6 +110,7 @@ namespace F_Spielprojekt
                             figuren[i].laufeStrecke();
                             break;
                         }
+                        // Es gibt keine weitere Strecke
                         else if(j+1 == strecken.Count)
                         {
                             // Ende der Strecke
@@ -121,6 +126,7 @@ namespace F_Spielprojekt
                                 form.Punkte--;
                                 // - Punkt
                             }
+                            // Figur löschen
                             figuren[i].MeinBild.Hide();
                             figuren[i] = null;
                             figuren.RemoveAt(i);
@@ -130,6 +136,7 @@ namespace F_Spielprojekt
             }
         }
 
+        // Neue Figur zur Liste hinzufügen
         public void addFigur(Figur figur)
         {
             Figuren.Add(figur);

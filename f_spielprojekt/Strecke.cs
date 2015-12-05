@@ -12,9 +12,9 @@ namespace F_Spielprojekt
         PictureBox1 pB;
         Haus haus;
 
-        int laenge_X, laenge_Y;
-        int schritte_X, schritte_Y;
-        int genauigkeit = Karte.bewGenauigkeit;
+        int laenge_X, laenge_Y; // Länge der Strecke in Pixel
+        int schritte_X, schritte_Y; // Gibt an, wieviel Schritte eine Strecke hat
+        int genauigkeit = Karte.bewGenauigkeit; // Gibt an, ob jeder Pixel abgelaufen werden soll, oder nur ein Teil der Pixel
 
         public List<Punkt> Punkte
         {
@@ -122,6 +122,7 @@ namespace F_Spielprojekt
             }
         }
 
+        // Hier werden die Schritte der Strecke berechnet, die Genauigkeit kann beliebig eingestellt werden
         public Strecke(Punkt a, Punkt b)
         {
 
