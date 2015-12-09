@@ -7,22 +7,19 @@ namespace F_Spielprojekt
 {
     public class Karte
     {
-        public static int bewGenauigkeit = 10;
-        List<Strecke> strecken = new List<Strecke>();
-        private List<Figur> figuren = new List<Figur>();
-        private Form1 form;
+        public static int bewGenauigkeit = 100;                                     // Gibt an, ob jeder Pixel abgelaufen werden soll, oder nur ein Teil der Pixel
+        List<Strecke> strecken = new List<Strecke>();                               // Die Liste der Strecken für die Karte
+        private List<Figur> figuren = new List<Figur>();                            // Die Liste der Figuren für die Karte
+        private Form1 form;                                                         // Gibt an auf welchem Form die Karte liegen soll
 
-
-        public Karte(Form1 form)
+        public Karte(Form1 form)                                                    // Erzeug die Karte mit allen Stecken, Weichen
         {
             this.form = form;
-
-            // Die Karte erhält neue Strecken
-            Strecke strecke1 = new Strecke(Punkt.StartPosition, Punkt.Weiche1);
+            
+            Strecke strecke1 = new Strecke(Punkt.StartPosition, Punkt.Weiche1);     // Die Karte erhält die einzelnen Strecken
             strecken.Add(strecke1);
             Strecke strecke7 = new Strecke(Punkt.Weiche1, Punkt.haus1);
             strecken.Add(strecke7);
-
             Strecke strecke2 = new Strecke(Punkt.Weiche1, Punkt.Weiche2);
             strecken.Add(strecke2);
             Strecke strecke8 = new Strecke(Punkt.Weiche2, Punkt.haus2);
@@ -41,93 +38,66 @@ namespace F_Spielprojekt
             strecken.Add(strecke11);
             Strecke strecke6 = new Strecke(Punkt.Weiche5, Punkt.EndPosition);
             strecken.Add(strecke6);
-
-            // Die Strecken erhalten Weichen
-            strecke7.PB = form.PB1;
+           
+            strecke7.PB = form.PB1;                                                 // Die Karte erhalten die einzelnen Weichen
             strecke8.PB = form.PB2;
             strecke9.PB = form.PB3;
             strecke10.PB = form.PB4;
             strecke11.PB = form.PB5;
-
         }
 
         public List<Figur> Figuren
         {
-            get
-            {
-                return figuren;
-            }
-
-            set
-            {
-                figuren = value;
-            }
+            get { return figuren; }
+            set { figuren = value; }
         }
 
         public List<Strecke> Strecken
         {
-            get
-            {
-                return strecken;
-            }
-
-            set
-            {
-                strecken = value;
-            }
+            get { return strecken; }
+            set { strecken = value; }
         }
 
-        public void streckeAendern()
+        public void streckeAendern()                                                // Alle Figuren laufen einen Schritt weiter
         {
             for(int i = 0; i < figuren.Count; i++)
-            {
-                // Die Figuren laufen der Strecke entlang bis zum Ende.
-                if(figuren[i].laufeStrecke())
+            {               
+                if(figuren[i].laufeStrecke(figuren[i].St1))                                       // Die Figuren laufen der Strecke entlang bis zum Ende.
                 {
 
                 }
-                // Ist die Strecke abgelaufen, soll die Figur gelöscht werden oder eine neue Strecke erhalten
-                else
+                else                                                                // Ist die Strecke zu Ende, wird die Figur gelöscht oder zur nächsten Stecke geschickt
                 {
                     for (int j = 0; j < strecken.Count; j++)
-                    {
-                        // Strecke und Wegpunkt überprüfen
-                        if (strecken[j].PB != null)
+                    {                        
+                        if (strecken[j].PB != null)                                 // Strecke und Wegpunkt überprüfen
                         { 
                             if (strecken[j].PB.Wegpunkt && figuren[i].MeineStrecke.Punkte[1] == strecken[j].Punkte[0])
                             {
                                 figuren[i].MeineStrecke = strecken[j];
                                 figuren[i].Schritt = 0;
-                                figuren[i].laufeStrecke();
+                                figuren[i].laufeStrecke(figuren[i].St1);
                                 break;
                             }
-                        }
-                        // Strecke ohne Wegpunkt
-                        else if (strecken[j].Punkte[0] == figuren[i].MeineStrecke.Punkte[1])
+                        }                        
+                        else if (strecken[j].Punkte[0] == figuren[i].MeineStrecke.Punkte[1])    // Strecke ohne Wegpunkt
                         {
                             figuren[i].MeineStrecke = strecken[j];
                             figuren[i].Schritt = 0;
-                            figuren[i].laufeStrecke();
+                            figuren[i].laufeStrecke(figuren[i].St1);
                             break;
-                        }
-                        // Es gibt keine weitere Strecke
-                        else if(j+1 == strecken.Count)
-                        {
-                            // Ende der Strecke
-
-                            // Farbe überprüfen
-                            if(strecken[j].Haus.Farbe == figuren[i].Farbe)
-                            {
-                                // + Punkt
-                                form.Punkte++;
+                        }     
+                        else if(j+1 == strecken.Count)                              // Ende der Strecke
+                        { 
+                            if(strecken[j].Haus.Farbe == figuren[i].Farbe)          // Farbe überprüfen
+                            {    
+                                form.Punkte++;                                      // Farbe passt +1 Punkt
                             }
                             else
                             {
-                                form.Punkte--;
-                                // - Punkt
+                                form.Punkte--;                                      // Farbe falsch -1 Punkt                         
                             }
-                            // Figur löschen
-                            figuren[i].MeinBild.Hide();
+                            figuren[i].MeinBild.Hide();                             // Figur wird gelöscht
                             figuren[i] = null;
                             figuren.RemoveAt(i);
                         }    
@@ -136,8 +106,8 @@ namespace F_Spielprojekt
             }
         }
 
-        // Neue Figur zur Liste hinzufügen
-        public void addFigur(Figur figur)
+
+        public void addFigur(Figur figur)                                           // Neue Figur zur Liste hinzufügen
         {
             Figuren.Add(figur);
         }

@@ -13,24 +13,15 @@ namespace F_Spielprojekt
     { 
 
         Karte meineKarte;                                   // Die Karte beinhaltet die Strecken
-
         int punkte = 0;                                     // TODO: Punkte muss den Spielern zugeordnet werden
-
         Timer Timer1;
-
-        private int zaehler = 1;                            // Nach jedem 10 Interval, soll ein neues Männchen genertiert werden
-
+        private int zaehler = 0;                            // Nach jedem 10 Interval, soll ein neues Männchen genertiert werden
+        float stiftbreite = 4f;
+        
         public int Punkte
         {
-            get
-            {
-                return punkte;
-            }
-
-            set
-            {
-                punkte = value;
-            }
+            get { return punkte; }
+            set { punkte = value; }
         }
 
         public Form1()
@@ -51,10 +42,9 @@ namespace F_Spielprojekt
             pB5.Enabled = true;
 
             Timer1 = new Timer();                               // Timer initialisieren
-            Timer1.Interval = 1000;                             // Timer Intervall festlegen
+            Timer1.Interval = 200;                              // Timer Intervall festlegen
             Timer1.Start();                
             Timer1.Tick += new EventHandler(OnTickEvent);
-            
 
             meineKarte = new Karte(this);
 
@@ -82,22 +72,33 @@ namespace F_Spielprojekt
             // Wenn der Timer abläuft, soll die Karte die Strecke ändern
             meineKarte.streckeAendern();
 
-            if (zaehler == 10)
+            if (zaehler == 50)
             {
-                // Nach jeder 10ten Streckänderung soll eine Figur erstellt werden
+                                                            // Nach jeder 50ten Streckänderung soll eine Figur erstellt werden  // Genauigkeit beeinflust diesen Wert
                 neueFigur();
             }
         }
 
         private void neueFigur()
         {
-            zaehler = 1;
-            Figur meinePerson = new Figur(zufallsFarbe(), meineKarte);
+            zaehler = 0;
+                      
+            Color zvfarbe = new Color();
+            zvfarbe = Color.AliceBlue;                      // MUSS MIT FARBE ANGEGLICHEN WERDEN
+            Pen pen = new Pen(zvfarbe, stiftbreite);
+            SolidBrush myBrush = new SolidBrush(zvfarbe);
+            Panel panel1 = new Panel();
+            Graphics g = panel1.CreateGraphics();
+            g.Clear(Color.Transparent);
+            StickmanLaufen st1 = new StickmanLaufen(25, 25, 1, myBrush, pen, g);
+            Figur meinePerson = new Figur(zufallsFarbe(), meineKarte, st1);
             meineKarte.addFigur(meinePerson);
             meinePerson.MeineStrecke = meineKarte.Strecken[0];
+            st1.Zeichne(1, st1);
 
-            pBPerson = new PictureBox1();
-            meinePerson.MeinBild = pBPerson;    // Die Figur erhält ein Bild auf dem Form
+            
+            /*pBPerson = new PictureBox1();
+            meinePerson.MeinBild = pBPerson;                // Die Figur erhält ein Bild auf dem Form
 
 
             // Hier stehen die Bildeinstellung der Figur
@@ -115,7 +116,7 @@ namespace F_Spielprojekt
             Controls.Add(pBPerson); // Das Bild wird dem Form zugewiesen
 
             ((System.ComponentModel.ISupportInitialize)(this.pBPerson)).EndInit();
-            this.ResumeLayout(false);
+            this.ResumeLayout(false);*/
         }
 
         // Zufallsfarben

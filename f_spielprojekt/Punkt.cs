@@ -34,89 +34,50 @@ namespace F_Spielprojekt
         }
         public int X
         {
-            get
-            {
-                return x;
-            }
-
-            set
-            {
-                x = value;
-            }
+            get { return x; }
+            set { x = value; }
         }
 
         public int Y
         {
-            get
-            {
-                return y;
-            }
-
-            set
-            {
-                y = value;
-            }
+            get { return y; }
+            set { y = value; }
         }
 
         public static Punkt StartPosition
         {
-            get
-            {
-                return startPosition;
-            }
+            get { return startPosition; }
         }
 
         public static Punkt Weiche1
         {
-            get
-            {
-                return weiche1;
-            }
+            get { return weiche1; }
         }
 
         public static Punkt Weiche2
         {
-            get
-            {
-                return weiche2;
-            }
+            get { return weiche2; }
         }
 
         public static Punkt Weiche3
         {
-            get
-            {
-                return weiche3;
-            }
+            get { return weiche3; }
         }
 
         public static Punkt Weiche4
         {
-            get
-            {
-                return weiche4;
-            }
+            get { return weiche4; }
         }
 
         public static Punkt Weiche5
         {
-            get
-            {
-                return weiche5;
-            }
+            get { return weiche5; }
         }
 
         public static Punkt EndPosition
         {
-            get
-            {
-                return endPosition;
-            }
-
-            set
-            {
-                endPosition = value;
-            }
+            get { return endPosition; }
+            set { endPosition = value; }
         }
     }
 }

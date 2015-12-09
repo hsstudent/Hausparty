@@ -11,15 +11,8 @@ namespace F_Spielprojekt
 
         public bool Wegpunkt
         {
-            get
-            {
-                return wegpunkt;
-            }
-
-            set
-            {
-                wegpunkt = value;
-            }
+            get { return wegpunkt; }
+            set { wegpunkt = value; }
         }
     }
 }

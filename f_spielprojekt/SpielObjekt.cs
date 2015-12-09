@@ -18,20 +18,13 @@ namespace F_Spielprojekt
 
         public Farbe Farbe
         {
-            get{ return farbe; }
+            get { return farbe; }
         }
 
         public PictureBox MeinBild
         {
-            get
-            {
-                return meinBild;
-            }
-
-            set
-            {
-                meinBild = value;
-            }
+            get { return meinBild; }
+            set { meinBild = value; }
         }
     }
 }

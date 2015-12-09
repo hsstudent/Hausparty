@@ -1,63 +1,115 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Erzeugt&#xD;&#xA;die Karte&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;Karte&#xD;&#xA;ändern&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;Nur für&#xD;&#xA;Weichen">
+    <Position X="9.37" Y="0.525" Height="2.867" Width="0.7" />
+  </Comment>
+  <Comment CommentText="Damit&#xD;&#xA;die&#xD;&#xA;stickman&#xD;&#xA;animiert werden">
+    <Position X="7.67" Y="3.883" Height="1.058" Width="0.783" />
+  </Comment>
+  <Comment CommentText="Genauigkeit verlangsamt Spiel !!!">
+    <Position X="2.078" Y="0.5" Height="0.75" Width="1.467" />
+  </Comment>
   <Class Name="F_Spielprojekt.Form1">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Position X="0.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAGABAAAiCQAASAUAAGAACAiABACAAAAQAABAAAAAIQ=</HashCode>
+      <HashCode>AAGABABAqCQAwSAUAACAASAiAAAAAAAAQAAAAAAFAAA=</HashCode>
       <FileName>Form1.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="F_Spielprojekt.SpielObjekt">
-    <Position X="3.25" Y="0.5" Width="1.5" />
+    <Position X="3.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAQQAAAAEAAAAABAAAAAQAEAAAABAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAABAAAAAQAEAAAABAAAAAA=</HashCode>
       <FileName>SpielObjekt.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="F_Spielprojekt.Person">
-    <Position X="4.25" Y="4" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Person.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="F_Spielprojekt.Optionen">
-    <Position X="6.75" Y="0.5" Width="1.5" />
+  <Class Name="F_Spielprojekt.Optionen" Collapsed="true">
+    <Position X="10.25" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Optionen.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="F_Spielprojekt.Highscore">
-    <Position X="6.75" Y="1.5" Width="1.5" />
+  <Class Name="F_Spielprojekt.Highscore" Collapsed="true">
+    <Position X="10.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Highscore.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="F_Spielprojekt.Spieler">
-    <Position X="6.75" Y="2.5" Width="1.5" />
+  <Class Name="F_Spielprojekt.Spieler" Collapsed="true">
+    <Position X="10.25" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Spieler.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="F_Spielprojekt.Haus">
-    <Position X="2.25" Y="4" Width="1.5" />
+    <Position X="2.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Haus.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="F_Spielprojekt.Position">
-    <Position X="9.75" Y="2" Width="1.5" />
+  <Class Name="F_Spielprojekt.Figur">
+    <Position X="4.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABAAAAAAEAAAABAAAAAAwAAAAAAAAAAAAAAAwAAAAAA=</HashCode>
-      <FileName>Position.cs</FileName>
+      <HashCode>AAABIAAAAAAAAAAAAAAAACAAIAAgACAAAAAAAAAAACA=</HashCode>
+      <FileName>Figur.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="F_Spielprojekt.GeoObjekte">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAwAAAAAACAAAAAAAAwAAAAAA=</HashCode>
+      <FileName>GeoObjekte.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="F_Spielprojekt.Karte" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAEAAAAAAAAAAAAAAAAQAAAAEQAAAAAgAAAAgAABAA=</HashCode>
+      <FileName>Karte.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="F_Spielprojekt.PictureBox1" Collapsed="true">
+    <Position X="7.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAA=</HashCode>
+      <FileName>PictureBox1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="F_Spielprojekt.Program" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="F_Spielprojekt.Punkt" Collapsed="true">
+    <Position X="7.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAQEACAYBAAAAAAAAA9AAAAAAAAAABgAAC9YAA=</HashCode>
+      <FileName>Punkt.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="F_Spielprojekt.StickmanLaufen">
+    <Position X="6" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAYAAAAGCAAAAAgAAAAAAAACAAAIAAAACAAAAAA=</HashCode>
+      <FileName>StickmanLaufen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="F_Spielprojekt.Strecke" Collapsed="true">
+    <Position X="7.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAABAAAAAQAQAAAAEgGAAAIBgAACAQAAAAEABAAA=</HashCode>
+      <FileName>Strecke.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="F_Spielprojekt.Farbe">
-    <Position X="7.5" Y="3.75" Width="1.5" />
+    <Position X="10.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AwAAgAAAAAAEAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
       <FileName>Farbe.cs</FileName>
