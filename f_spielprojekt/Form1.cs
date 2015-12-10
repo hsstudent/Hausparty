@@ -92,7 +92,7 @@ namespace F_Spielprojekt
             panel1.Location = new Point(Punkt.StartPosition.X, Punkt.StartPosition.Y);
             panel1.Size = new Size(120, 120);
             Graphics g = panel1.CreateGraphics();
-            g.Clear(Color.Coral);
+            g.Clear(Color.Transparent);
             StickmanLaufen st1 = new StickmanLaufen(25, 25, 1, myBrush, pen, g);
             Figur meinePerson = new Figur(zufallsFarbe(), meineKarte, st1);
             meineKarte.addFigur(meinePerson);
