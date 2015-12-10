@@ -50,6 +50,7 @@ namespace F_Spielprojekt
             SolidBrush myBrush = st1.MyBrush;
             Pen pen = st1.Pen;
             Graphics g = st1.G;
+            schritte = (schritte % 6) + 1;
 
             if (schritte == 1)                                                           // Schritt ist für die animation zuständig (1 - 6)
             {

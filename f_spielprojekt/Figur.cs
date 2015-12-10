@@ -38,14 +38,15 @@ namespace F_Spielprojekt
         {
             if(meineStrecke.Genauigkeit != schritt)
             {
-                //MeinBild.Location = new System.Drawing.Point(meinBild.Location.X + meineStrecke.Schritte_X, meinBild.Location.Y - meineStrecke.Schritte_Y);
-                int walk = schritt;
-                
+                MeinBild.Location = new System.Drawing.Point(meinBild.Location.X + meineStrecke.Schritte_X, meinBild.Location.Y - meineStrecke.Schritte_Y);
+                int walk = schritt+1;
+
+                bool a;
                 do
                 {
-                    st1.Zeichne(walk, st1);
+                    a = st1.Zeichne(walk, st1);
                 }
-                while (st1.Zeichne(walk, st1) == true);
+                while (a == false);
                 schritt += 1;
                 return true;
             }

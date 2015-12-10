@@ -96,6 +96,7 @@ namespace F_Spielprojekt
             meinePerson.MeineStrecke = meineKarte.Strecken[0];
             st1.Zeichne(1, st1);
 
+            meinePerson.MeinBild = panel1;
             
             /*pBPerson = new PictureBox1();
             meinePerson.MeinBild = pBPerson;                // Die Figur erhält ein Bild auf dem Form
