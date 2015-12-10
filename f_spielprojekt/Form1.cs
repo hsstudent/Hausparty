@@ -88,8 +88,11 @@ namespace F_Spielprojekt
             Pen pen = new Pen(zvfarbe, stiftbreite);
             SolidBrush myBrush = new SolidBrush(zvfarbe);
             Panel panel1 = new Panel();
+            panel1.Enabled = false;
+            panel1.Location = new Point(Punkt.StartPosition.X, Punkt.StartPosition.Y);
+            panel1.Size = new Size(120, 120);
             Graphics g = panel1.CreateGraphics();
-            g.Clear(Color.Transparent);
+            g.Clear(Color.Coral);
             StickmanLaufen st1 = new StickmanLaufen(25, 25, 1, myBrush, pen, g);
             Figur meinePerson = new Figur(zufallsFarbe(), meineKarte, st1);
             meineKarte.addFigur(meinePerson);
