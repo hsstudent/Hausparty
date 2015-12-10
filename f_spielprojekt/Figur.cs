@@ -15,7 +15,7 @@ namespace F_Spielprojekt
         public Figur(Farbe farbe, Karte meineKarte, StickmanLaufen st1)
             : base (farbe)
         {
-            
+            this.st1 = st1;
         }
 
         public Strecke MeineStrecke
