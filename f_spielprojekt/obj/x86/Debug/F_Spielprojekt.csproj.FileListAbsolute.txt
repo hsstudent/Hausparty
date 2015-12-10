@@ -37,3 +37,11 @@ C:\Users\Markus\Documents\Visual Studio 2010\Projects\Hausparty\F_Spielprojekt\o
 C:\Users\Markus\Documents\Visual Studio 2010\Projects\Hausparty\F_Spielprojekt\obj\x86\Debug\F_Spielprojekt.Properties.Resources.resources
 C:\Users\Markus\Documents\Visual Studio 2010\Projects\Hausparty\F_Spielprojekt\obj\x86\Debug\F_Spielprojekt.csproj.GenerateResource.Cache
 C:\Users\Markus\Documents\Visual Studio 2010\Projects\Hausparty\F_Spielprojekt\obj\x86\Debug\F_Spielprojekt.pdb
+U:\visual studio\Hausparty\F_Spielprojekt\obj\x86\Debug\F_Spielprojekt.exe
+U:\visual studio\Hausparty\F_Spielprojekt\bin\Debug\F_Spielprojekt.exe
+U:\visual studio\Hausparty\F_Spielprojekt\bin\Debug\F_Spielprojekt.pdb
+U:\visual studio\Hausparty\F_Spielprojekt\obj\x86\Debug\F_Spielprojekt.csprojResolveAssemblyReference.cache
+U:\visual studio\Hausparty\F_Spielprojekt\obj\x86\Debug\F_Spielprojekt.Form1.resources
+U:\visual studio\Hausparty\F_Spielprojekt\obj\x86\Debug\F_Spielprojekt.Properties.Resources.resources
+U:\visual studio\Hausparty\F_Spielprojekt\obj\x86\Debug\F_Spielprojekt.csproj.GenerateResource.Cache
+U:\visual studio\Hausparty\F_Spielprojekt\obj\x86\Debug\F_Spielprojekt.pdb

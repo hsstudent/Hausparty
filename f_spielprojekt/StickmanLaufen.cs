@@ -15,6 +15,9 @@ namespace F_Spielprojekt
         public StickmanLaufen(int posX, int posY, int schritte, SolidBrush myBrush, Pen pen, Graphics g)
             : base(posX, posY)
         {
+            this.myBrush = myBrush;
+            this.pen = pen;
+            this.g = g;
         }
 
         public int Schritte
