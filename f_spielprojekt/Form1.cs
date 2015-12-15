@@ -10,8 +10,8 @@ using System.Windows.Forms;
 namespace F_Spielprojekt
 {
     public partial class Form1 : Form
-    { 
-
+    {
+        int lvl = 3;                                        //Schwierigkeitsstufe 3/4/5 für spätere implementierung
         Karte meineKarte;                                   // Die Karte beinhaltet die Strecken
         int punkte = 0;                                     // TODO: Punkte muss den Spielern zugeordnet werden
         Timer Timer1;
@@ -34,6 +34,9 @@ namespace F_Spielprojekt
             bOptionen.Hide();                                   // Buttons ausblenden
             bHighscore.Hide();
             bStart.Hide();
+            rtbName.Hide();
+            lName.Hide();
+            lHighscore.Visible = true;
 
             pB1.Enabled = true;                                 // Wegbuttons aktivieren
             pB2.Enabled = true;
@@ -128,7 +131,7 @@ namespace F_Spielprojekt
         {
             int zufallsZahl;
             Random rdm = new Random();
-            zufallsZahl = rdm.Next(0, 5);
+            zufallsZahl = rdm.Next(0, lvl);
             switch (zufallsZahl)
             {
                 case 0: return Farbe.Blau;
@@ -218,7 +221,9 @@ namespace F_Spielprojekt
 
         private void bOptionen_Click(object sender, EventArgs e)
         {
-
+            Optionen form2 = new Optionen();
+            form2.ShowDialog();
+            lvl = form2.Lvl;
         }
 
         private void Form1_Click(object sender, MouseEventArgs e)
@@ -226,6 +231,16 @@ namespace F_Spielprojekt
             #if Debug
             MessageBox.Show(e.X.ToString()+ " " + e.Y.ToString());
             #endif
+        }
+
+        private void rtbName_TextChanged(object sender, EventArgs e)
+        {
+            if (rtbName.Text != "")
+            {
+                bStart.Enabled = true;
+            }
+            else
+            { bStart.Enabled = false; }
         }
     }
 }
