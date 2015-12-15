@@ -9,7 +9,7 @@ namespace F_Spielprojekt
     public abstract class SpielObjekt
     {
         protected Farbe farbe;  
-        protected Panel meinBild;              // Jedes Spielobjekt hat ein Bild
+        protected Form meinBild;              // Jedes Spielobjekt hat ein Bild
 
         public SpielObjekt(Farbe farbe)
         {
@@ -21,7 +21,7 @@ namespace F_Spielprojekt
             get { return farbe; }
         }
 
-        public Panel MeinBild
+        public Form MeinBild
         {
             get { return meinBild; }
             set { meinBild = value; }

@@ -8,7 +8,6 @@ namespace F_Spielprojekt
         /// Erforderliche Designervariable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-        System.ComponentModel.ComponentResourceManager resources;
 
         private System.Windows.Forms.Button bStart;
         private System.Windows.Forms.Button bOptionen;

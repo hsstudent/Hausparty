@@ -38,7 +38,7 @@ namespace F_Spielprojekt
         {
             if(meineStrecke.Genauigkeit != schritt)
             {
-                MeinBild.Location = new System.Drawing.Point(meinBild.Location.X + meineStrecke.Schritte_X, meinBild.Location.Y - meineStrecke.Schritte_Y);
+                meinBild.Location = new System.Drawing.Point(meinBild.Location.X + meineStrecke.Schritte_X, meinBild.Location.Y - meineStrecke.Schritte_Y);
                 int walk = schritt+1;
 
            

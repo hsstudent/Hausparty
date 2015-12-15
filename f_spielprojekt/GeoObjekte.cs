@@ -8,22 +8,17 @@ namespace F_Spielprojekt
 {
     public abstract class GeoObjekte : IDrawable
     {
-        protected int posX;                 // X Punkt der Objekte
-        protected int posY;                 // Y Punkt der Objekte
-        public int PosX
+        protected Punkt meinePosition;               // Y Punkt der Objekte
+
+        public Punkt MeinePosition
         {
-            get { return posX; }
-            set { posX = value; }
+            get { return this.meinePosition; }
+            set { this.meinePosition = value; }
         }
-        public int PosY
+
+        public GeoObjekte(Punkt meinPunkt)
         {
-            get { return posY; }
-            set { posY = value; }
-        }
-        public GeoObjekte(int posX, int posY)
-        {
-            this.posX = posX;
-            this.posY = posY;
+            this.meinePosition = meinPunkt;
         }
         public abstract void Zeichne(Pen pen, Graphics g);
     }

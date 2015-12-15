@@ -90,20 +90,17 @@ namespace F_Spielprojekt
             zvfarbe = Color.Tomato;                    // MUSS MIT FARBE ANGEGLICHEN WERDEN
             Pen pen = new Pen(zvfarbe, stiftbreite);
             SolidBrush myBrush = new SolidBrush(zvfarbe);
-            Panel panel1 = new Panel();
-            panel1.Enabled = false;
-            panel1.Location = new Point(Punkt.StartPosition.X, Punkt.StartPosition.Y);
-            panel1.Size = new Size(80, 80);
-            Controls.Add(panel1);
-            Graphics g = panel1.CreateGraphics();
+            
+            this.Location = new Point(Punkt.StartPosition.X, Punkt.StartPosition.Y);
+            Graphics g = this.CreateGraphics();
             g.Clear(Color.Transparent);
             StickmanLaufen st1 = new StickmanLaufen(25, 25, 1, myBrush, pen, g);
+
             Figur meinePerson = new Figur(zufallsFarbe(), meineKarte, st1);
+
             meineKarte.addFigur(meinePerson);
             meinePerson.MeineStrecke = meineKarte.Strecken[0];
             st1.Zeichne(1, st1);
-
-            meinePerson.MeinBild = panel1;
 
             
             /*pBPerson = new PictureBox1();
