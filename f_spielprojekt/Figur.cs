@@ -41,13 +41,9 @@ namespace F_Spielprojekt
                 MeinBild.Location = new System.Drawing.Point(meinBild.Location.X + meineStrecke.Schritte_X, meinBild.Location.Y - meineStrecke.Schritte_Y);
                 int walk = schritt+1;
 
-                bool a;
-                do
-                {
-                    a = st1.Zeichne(walk, st1);
-                    st1.Zeichne(walk, st1);
-                }
-                while (a == false);
+           
+                st1.Zeichne(walk, st1);
+
                 schritt += 1;
                 return true;
             }

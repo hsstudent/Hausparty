@@ -10,13 +10,13 @@ using System.Windows.Forms;
 namespace F_Spielprojekt
 {
     public partial class Form1 : Form
-    {
-        int lvl = 3;                                        //Schwierigkeitsstufe 3/4/5 für spätere implementierung
+    { 
+
         Karte meineKarte;                                   // Die Karte beinhaltet die Strecken
         int punkte = 0;                                     // TODO: Punkte muss den Spielern zugeordnet werden
         Timer Timer1;
         private int zaehler = 0;                            // Nach jedem 10 Interval, soll ein neues Männchen genertiert werden
-        float stiftbreite = 4f;
+        float stiftbreite = 3 * f;
         
         public int Punkte
         {
@@ -34,9 +34,6 @@ namespace F_Spielprojekt
             bOptionen.Hide();                                   // Buttons ausblenden
             bHighscore.Hide();
             bStart.Hide();
-            rtbName.Hide();
-            lName.Hide();
-            lHighscore.Visible = true;
 
             pB1.Enabled = true;                                 // Wegbuttons aktivieren
             pB2.Enabled = true;
@@ -87,13 +84,14 @@ namespace F_Spielprojekt
             zaehler = 0;
                       
             Color zvfarbe = new Color();
-            zvfarbe = Color.AliceBlue;                      // MUSS MIT FARBE ANGEGLICHEN WERDEN
+            zvfarbe = Color.Tomato;                    // MUSS MIT FARBE ANGEGLICHEN WERDEN
             Pen pen = new Pen(zvfarbe, stiftbreite);
             SolidBrush myBrush = new SolidBrush(zvfarbe);
             Panel panel1 = new Panel();
             panel1.Enabled = false;
             panel1.Location = new Point(Punkt.StartPosition.X, Punkt.StartPosition.Y);
-            panel1.Size = new Size(120, 120);
+            panel1.Size = new Size(80, 80);
+            Controls.Add(panel1);
             Graphics g = panel1.CreateGraphics();
             g.Clear(Color.Transparent);
             StickmanLaufen st1 = new StickmanLaufen(25, 25, 1, myBrush, pen, g);
@@ -103,6 +101,7 @@ namespace F_Spielprojekt
             st1.Zeichne(1, st1);
 
             meinePerson.MeinBild = panel1;
+
             
             /*pBPerson = new PictureBox1();
             meinePerson.MeinBild = pBPerson;                // Die Figur erhält ein Bild auf dem Form
@@ -131,7 +130,7 @@ namespace F_Spielprojekt
         {
             int zufallsZahl;
             Random rdm = new Random();
-            zufallsZahl = rdm.Next(0, lvl);
+            zufallsZahl = rdm.Next(0, 5);
             switch (zufallsZahl)
             {
                 case 0: return Farbe.Blau;
@@ -221,9 +220,7 @@ namespace F_Spielprojekt
 
         private void bOptionen_Click(object sender, EventArgs e)
         {
-            Optionen form2 = new Optionen();
-            form2.ShowDialog();
-            lvl = form2.Lvl;
+
         }
 
         private void Form1_Click(object sender, MouseEventArgs e)
@@ -231,16 +228,6 @@ namespace F_Spielprojekt
             #if Debug
             MessageBox.Show(e.X.ToString()+ " " + e.Y.ToString());
             #endif
-        }
-
-        private void rtbName_TextChanged(object sender, EventArgs e)
-        {
-            if (rtbName.Text != "")
-            {
-                bStart.Enabled = true;
-            }
-            else
-            { bStart.Enabled = false; }
         }
     }
 }
