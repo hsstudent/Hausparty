@@ -16,7 +16,7 @@ namespace F_Spielprojekt
         int punkte = 0;                                     // TODO: Punkte muss den Spielern zugeordnet werden
         Timer Timer1;
         private int zaehler = 0;                            // Nach jedem 10 Interval, soll ein neues Männchen genertiert werden
-        float stiftbreite = 3 * f;
+        float stiftbreite = 4f;
         
         public int Punkte
         {

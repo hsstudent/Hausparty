@@ -200,7 +200,6 @@ namespace F_Spielprojekt
             this.rtbName.Size = new System.Drawing.Size(168, 25);
             this.rtbName.TabIndex = 11;
             this.rtbName.Text = "";
-            this.rtbName.TextChanged += new System.EventHandler(this.rtbName_TextChanged);
             // 
             // pB5
             // 
