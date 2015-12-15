@@ -105,63 +105,19 @@ namespace F_Spielprojekt
  
             }
             Panel panel1 = new Panel();
-            panel1.Enabled = false;
-            panel1.Location = new Point(Punkt.StartPosition.X, Punkt.StartPosition.Y);
-            panel1.Size = new Size(70, 70);
+            this.Location = new Point(Punkt.StartPosition.X, Punkt.StartPosition.Y);
             Controls.Add(panel1);
-            Graphics g = panel1.CreateGraphics();
+            Graphics g = this.CreateGraphics();
             g.Clear(Color.Transparent);
-            StickmanLaufen st1 = new StickmanLaufen(25, 25, 1, myBrush, pen, g);
+            StickmanLaufen st1 = new StickmanLaufen(Punkt.StartPosition, 1, myBrush, pen, g);
             Figur meinePerson = new Figur(pen, meineKarte, st1);
             meineKarte.addFigur(meinePerson);
             meinePerson.MeineStrecke = meineKarte.Strecken[0];
             st1.Zeichne(1, st1);
 
             meinePerson.MeinBild = panel1;
-
-            
-            /*pBPerson = new PictureBox1();
-            meinePerson.MeinBild = pBPerson;                // Die Figur erhält ein Bild auf dem Form
-
-
-            // Hier stehen die Bildeinstellung der Figur
-            ((ISupportInitialize)(pBPerson)).BeginInit();
-            this.SuspendLayout();
-
-            pBPerson.Enabled = false;
-            pBPerson.Image = Properties.Resources.StraßeGeradeButton;
-            pBPerson.Margin = new Padding(2);
-            pBPerson.Location = new Point(Punkt.StartPosition.X, Punkt.StartPosition.Y);
-            pBPerson.Name = "pBPerson" + meineKarte.Figuren.Count.ToString();
-            pBPerson.Size = new Size(34, 41);
-            pBPerson.SizeMode = PictureBoxSizeMode.StretchImage;
-
-            Controls.Add(pBPerson); // Das Bild wird dem Form zugewiesen
-
-            ((System.ComponentModel.ISupportInitialize)(this.pBPerson)).EndInit();
-            this.ResumeLayout(false);*/
         }
 
-<<<<<<< HEAD
-=======
-        // Zufallsfarben
-        private Farbe zufallsFarbe()
-        {
-            int zufallsZahl;
-            Random rdm = new Random();
-            zufallsZahl = rdm.Next(0, lvl);
-            switch (zufallsZahl)
-            {
-                case 0: return Farbe.Blau;
-                case 1: return Farbe.Gelb;
-                case 2: return Farbe.Grün;
-                case 3: return Farbe.Rot;
-                case 4: return Farbe.Schwarz;
-                default: return Farbe.Schwarz;
-            }
-        }
-
->>>>>>> baeb5a2f7f715438f2c87f6b189aca35a2f9c681
         // Hier werden die Weichen behandelt
         private void pB1_Click(object sender, EventArgs e)
         {
@@ -252,13 +208,11 @@ namespace F_Spielprojekt
             #endif
         }
 
-<<<<<<< HEAD
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
 
-=======
         private void rtbName_TextChanged(object sender, EventArgs e)
         {
             if (rtbName.Text != "")
@@ -268,6 +222,5 @@ namespace F_Spielprojekt
             else
             { bStart.Enabled = false; }
         }
->>>>>>> baeb5a2f7f715438f2c87f6b189aca35a2f9c681
     }
 }
