@@ -49,11 +49,11 @@ namespace F_Spielprojekt
             meineKarte = new Karte(this);
 
             // Häuser erstellen und Farbe zuweisen
-            Haus haus1 = new Haus(Farbe.Blau);
-            Haus haus2 = new Haus(Farbe.Gelb);
-            Haus haus3 = new Haus(Farbe.Grün);
-            Haus haus4 = new Haus(Farbe.Rot);
-            Haus haus5 = new Haus(Farbe.Schwarz);
+            Haus haus1 = new Haus(new Pen(Color.Blue));
+            Haus haus2 = new Haus(new Pen(Color.Yellow));
+            Haus haus3 = new Haus(new Pen(Color.Green));
+            Haus haus4 = new Haus(new Pen(Color.Red));
+            Haus haus5 = new Haus(new Pen(Color.Black));
 
             // Die Strecken bekommen Häuser
             meineKarte.Strecken[6].Haus = haus1;
@@ -82,20 +82,34 @@ namespace F_Spielprojekt
         private void neueFigur()
         {
             zaehler = 0;
-                      
-            Color zvfarbe = new Color();
-            zvfarbe = Color.Tomato;                    // MUSS MIT FARBE ANGEGLICHEN WERDEN
-            Pen pen = new Pen(zvfarbe, stiftbreite);
-            SolidBrush myBrush = new SolidBrush(zvfarbe);
+
+            Random rndFarbe = new Random();
+            int farbe = rndFarbe.Next(1, 6);
+            Pen pen = new Pen(Color.Transparent);
+            SolidBrush myBrush = new SolidBrush(Color.Transparent);
+            switch(farbe)
+            {
+                case 1: pen = new Pen(Color.Black, stiftbreite);
+                        myBrush = new SolidBrush(Color.Black); break;
+                case 2: pen = new Pen(Color.Red, stiftbreite);
+                        myBrush = new SolidBrush(Color.Red);break;
+                case 3: pen = new Pen(Color.Green, stiftbreite);
+                        myBrush = new SolidBrush(Color.Green);break;
+                case 4: pen = new Pen(Color.Blue, stiftbreite);
+                        myBrush = new SolidBrush(Color.Blue);break;
+                case 5: pen = new Pen(Color.Yellow, stiftbreite);
+                        myBrush = new SolidBrush(Color.Yellow);break;
+ 
+            }
             Panel panel1 = new Panel();
             panel1.Enabled = false;
             panel1.Location = new Point(Punkt.StartPosition.X, Punkt.StartPosition.Y);
-            panel1.Size = new Size(80, 80);
+            panel1.Size = new Size(70, 70);
             Controls.Add(panel1);
             Graphics g = panel1.CreateGraphics();
             g.Clear(Color.Transparent);
             StickmanLaufen st1 = new StickmanLaufen(25, 25, 1, myBrush, pen, g);
-            Figur meinePerson = new Figur(zufallsFarbe(), meineKarte, st1);
+            Figur meinePerson = new Figur(pen, meineKarte, st1);
             meineKarte.addFigur(meinePerson);
             meinePerson.MeineStrecke = meineKarte.Strecken[0];
             st1.Zeichne(1, st1);
@@ -123,23 +137,6 @@ namespace F_Spielprojekt
 
             ((System.ComponentModel.ISupportInitialize)(this.pBPerson)).EndInit();
             this.ResumeLayout(false);*/
-        }
-
-        // Zufallsfarben
-        private Farbe zufallsFarbe()
-        {
-            int zufallsZahl;
-            Random rdm = new Random();
-            zufallsZahl = rdm.Next(0, 5);
-            switch (zufallsZahl)
-            {
-                case 0: return Farbe.Blau;
-                case 1: return Farbe.Gelb;
-                case 2: return Farbe.Grün;
-                case 3: return Farbe.Rot;
-                case 4: return Farbe.Schwarz;
-                default: return Farbe.Schwarz;
-            }
         }
 
         // Hier werden die Weichen behandelt
@@ -229,5 +226,11 @@ namespace F_Spielprojekt
             MessageBox.Show(e.X.ToString()+ " " + e.Y.ToString());
             #endif
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

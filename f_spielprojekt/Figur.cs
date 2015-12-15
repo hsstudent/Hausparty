@@ -12,8 +12,8 @@ namespace F_Spielprojekt
         private Strecke meineStrecke;                   // Auf dieser Strecke befindet sich die Figur
         private int schritt;                            // Der Ort auf der jewiligen Stecke auf dem sich die Figur befindet
         private StickmanLaufen st1;
-        public Figur(Farbe farbe, Karte meineKarte, StickmanLaufen st1)
-            : base (farbe)
+        public Figur(Pen pen, Karte meineKarte, StickmanLaufen st1)
+            : base (pen)
         {
             this.st1 = st1;
         }

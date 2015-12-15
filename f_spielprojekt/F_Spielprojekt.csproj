@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Farbe.cs" />
     <Compile Include="GeoObjekte.cs" />
     <Compile Include="Haus.cs" />
     <Compile Include="Highscore.cs" />
@@ -82,7 +81,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="README.md" />
     <None Include="UML_Diagramm.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

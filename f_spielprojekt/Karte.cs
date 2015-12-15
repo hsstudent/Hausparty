@@ -89,7 +89,7 @@ namespace F_Spielprojekt
                         }     
                         else if(j+1 == strecken.Count)                              // Ende der Strecke
                         { 
-                            if(strecken[j].Haus.Farbe == figuren[i].Farbe)          // Farbe überprüfen
+                            if(strecken[j].Haus.Pen.Color == figuren[i].St1.Pen.Color)          // Farbe überprüfen
                             {    
                                 form.Punkte++;                                      // Farbe passt +1 Punkt
                             }
