@@ -16,7 +16,7 @@ namespace F_Spielprojekt
         int punkte = 0;                                     // TODO: Punkte muss den Spielern zugeordnet werden
         Timer Timer1;
         private int zaehler = 0;                            // Nach jedem 10 Interval, soll ein neues Männchen genertiert werden
-        float stiftbreite = 4f;
+        float stiftbreite = 3.5f;
         
         public int Punkte
         {
@@ -84,13 +84,14 @@ namespace F_Spielprojekt
             zaehler = 0;
                       
             Color zvfarbe = new Color();
-            zvfarbe = Color.AliceBlue;                      // MUSS MIT FARBE ANGEGLICHEN WERDEN
+            zvfarbe = Color.Tomato;                    // MUSS MIT FARBE ANGEGLICHEN WERDEN
             Pen pen = new Pen(zvfarbe, stiftbreite);
             SolidBrush myBrush = new SolidBrush(zvfarbe);
             Panel panel1 = new Panel();
             panel1.Enabled = false;
             panel1.Location = new Point(Punkt.StartPosition.X, Punkt.StartPosition.Y);
-            panel1.Size = new Size(120, 120);
+            panel1.Size = new Size(80, 80);
+            Controls.Add(panel1);
             Graphics g = panel1.CreateGraphics();
             g.Clear(Color.Transparent);
             StickmanLaufen st1 = new StickmanLaufen(25, 25, 1, myBrush, pen, g);
@@ -100,6 +101,7 @@ namespace F_Spielprojekt
             st1.Zeichne(1, st1);
 
             meinePerson.MeinBild = panel1;
+
             
             /*pBPerson = new PictureBox1();
             meinePerson.MeinBild = pBPerson;                // Die Figur erhält ein Bild auf dem Form
