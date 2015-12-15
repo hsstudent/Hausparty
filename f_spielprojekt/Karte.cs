@@ -62,9 +62,8 @@ namespace F_Spielprojekt
         {
             for(int i = 0; i < figuren.Count; i++)
             {               
-                if(figuren[i].laufeStrecke(figuren[i].St1))                                       // Die Figuren laufen der Strecke entlang bis zum Ende.
+                if(figuren[i].laufeStrecke())                                     // Die Figuren laufen der Strecke entlang bis zum Ende.
                 {
-
                 }
                 else                                                                // Ist die Strecke zu Ende, wird die Figur gelöscht oder zur nächsten Stecke geschickt
                 {
@@ -76,7 +75,7 @@ namespace F_Spielprojekt
                             {
                                 figuren[i].MeineStrecke = strecken[j];
                                 figuren[i].Schritt = 0;
-                                figuren[i].laufeStrecke(figuren[i].St1);
+                                figuren[i].laufeStrecke();
                                 break;
                             }
                         }                        
@@ -84,12 +83,12 @@ namespace F_Spielprojekt
                         {
                             figuren[i].MeineStrecke = strecken[j];
                             figuren[i].Schritt = 0;
-                            figuren[i].laufeStrecke(figuren[i].St1);
+                            figuren[i].laufeStrecke();
                             break;
                         }     
                         else if(j+1 == strecken.Count)                              // Ende der Strecke
                         { 
-                            if(strecken[j].Haus.Pen.Color == figuren[i].St1.Pen.Color)          // Farbe überprüfen
+                            if(strecken[j].Haus.Pen.Color == figuren[i].Stickman.Pen.Color)          // Farbe überprüfen
                             {    
                                 form.Punkte++;                                      // Farbe passt +1 Punkt
                             }
@@ -97,8 +96,6 @@ namespace F_Spielprojekt
                             {
                                 form.Punkte--;                                      // Farbe falsch -1 Punkt                         
                             }
-                            figuren[i].MeinBild.Hide();                             // Figur wird gelöscht
-                            figuren[i] = null;
                             figuren.RemoveAt(i);
                         }    
                     }

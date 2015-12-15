@@ -77,7 +77,7 @@ namespace F_Spielprojekt
 
             if (zaehler == 50)
             {
-                                                            // Nach jeder 50ten Streckänderung soll eine Figur erstellt werden  // Genauigkeit beeinflust diesen Wert
+                // Nach jeder 50ten Streckänderung soll eine Figur erstellt werden  // Genauigkeit beeinflust diesen Wert
                 neueFigur();
             }
         }
@@ -102,20 +102,15 @@ namespace F_Spielprojekt
                         myBrush = new SolidBrush(Color.Blue);break;
                 case 5: pen = new Pen(Color.Yellow, stiftbreite);
                         myBrush = new SolidBrush(Color.Yellow);break;
- 
             }
-            Panel panel1 = new Panel();
-            this.Location = new Point(Punkt.StartPosition.X, Punkt.StartPosition.Y);
-            Controls.Add(panel1);
             Graphics g = this.CreateGraphics();
-            g.Clear(Color.Transparent);
-            StickmanLaufen st1 = new StickmanLaufen(Punkt.StartPosition, 1, myBrush, pen, g);
-            Figur meinePerson = new Figur(pen, meineKarte, st1);
-            meineKarte.addFigur(meinePerson);
-            meinePerson.MeineStrecke = meineKarte.Strecken[0];
-            st1.Zeichne(1, st1);
 
-            meinePerson.MeinBild = panel1;
+            Stickman stickman = new Stickman(new Punkt(Punkt.StartPosition.X, Punkt.StartPosition.Y), 1, myBrush, pen, g);
+            stickman.GState = g;
+            Figur meineFigur = new Figur(pen, meineKarte, stickman);
+            meineKarte.addFigur(meineFigur);
+            meineFigur.MeineStrecke = meineKarte.Strecken[0];
+            stickman.Zeichne(1);
         }
 
         // Hier werden die Weichen behandelt
@@ -203,9 +198,9 @@ namespace F_Spielprojekt
 
         private void Form1_Click(object sender, MouseEventArgs e)
         {
-            #if Debug
+            
             MessageBox.Show(e.X.ToString()+ " " + e.Y.ToString());
-            #endif
+
         }
 
         private void Form1_Load(object sender, EventArgs e)

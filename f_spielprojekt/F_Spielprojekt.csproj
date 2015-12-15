@@ -72,7 +72,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Spieler.cs" />
     <Compile Include="SpielObjekt.cs" />
-    <Compile Include="StickmanLaufen.cs" />
+    <Compile Include="Stickman.cs" />
     <Compile Include="Strecke.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -108,7 +108,7 @@
     <None Include="Resources\StraßeKurfeButton.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\StraßeGeradeButton1.png" />
+    <None Include="Resources\Background_1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -11,11 +11,11 @@ namespace F_Spielprojekt
     {
         private Strecke meineStrecke;                   // Auf dieser Strecke befindet sich die Figur
         private int schritt;                            // Der Ort auf der jewiligen Stecke auf dem sich die Figur befindet
-        private StickmanLaufen st1;
-        public Figur(Pen pen, Karte meineKarte, StickmanLaufen st1)
+        private Stickman stickman;
+        public Figur(Pen pen, Karte meineKarte, Stickman stickman)
             : base (pen)
         {
-            this.st1 = st1;
+            this.stickman = stickman;
         }
 
         public Strecke MeineStrecke
@@ -30,19 +30,20 @@ namespace F_Spielprojekt
             set { schritt = value; }
         }
 
-        public StickmanLaufen St1
+        public Stickman Stickman
         {
-            get { return st1; }
+            get { return stickman; }
         }
-        public bool laufeStrecke(StickmanLaufen st1)
+        public bool laufeStrecke()
         {
             if(meineStrecke.Genauigkeit != schritt)
             {
-                meinBild.Location = new System.Drawing.Point(meinBild.Location.X + meineStrecke.Schritte_X, meinBild.Location.Y - meineStrecke.Schritte_Y);
-                int walk = schritt+1;
+                stickman.MeinePosition.X = stickman.MeinePosition.X + meineStrecke.Schritte_X;
+                stickman.MeinePosition.Y = stickman.MeinePosition.Y - meineStrecke.Schritte_Y;
 
+                int walk = schritt+1;
            
-                st1.Zeichne(walk, st1);
+                stickman.Zeichne(walk);
 
                 schritt += 1;
                 return true;

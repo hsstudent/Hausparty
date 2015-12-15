@@ -63,9 +63,9 @@ namespace F_Spielprojekt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap StraßeGeradeButton {
+        internal static System.Drawing.Bitmap Background_1 {
             get {
-                object obj = ResourceManager.GetObject("StraßeGeradeButton", resourceCulture);
+                object obj = ResourceManager.GetObject("Background_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace F_Spielprojekt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap StraßeGeradeButton1 {
+        internal static System.Drawing.Bitmap StraßeGeradeButton {
             get {
-                object obj = ResourceManager.GetObject("StraßeGeradeButton1", resourceCulture);
+                object obj = ResourceManager.GetObject("StraßeGeradeButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
