@@ -47,7 +47,7 @@ namespace F_Spielprojekt
                     a = st1.Zeichne(walk, st1);
                     st1.Zeichne(walk, st1);
                 }
-                while (a == true);
+                while (a == false);
                 schritt += 1;
                 return true;
             }
