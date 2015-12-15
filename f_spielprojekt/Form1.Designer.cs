@@ -200,6 +200,7 @@ namespace F_Spielprojekt
             this.rtbName.Size = new System.Drawing.Size(168, 25);
             this.rtbName.TabIndex = 11;
             this.rtbName.Text = "";
+            this.rtbName.TextChanged += new System.EventHandler(this.rtbName_TextChanged);
             // 
             // pB5
             // 
@@ -296,7 +297,7 @@ namespace F_Spielprojekt
             this.Controls.Add(this.bOptionen);
             this.Controls.Add(this.bStart);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximumSize = new System.Drawing.Size(800, 380);
             this.MinimumSize = new System.Drawing.Size(800, 380);
             this.Name = "Form1";
