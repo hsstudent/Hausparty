@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 
 namespace F_Spielprojekt
 {
     public class Haus : SpielObjekt
     {
 
-        public Haus(Farbe farbe) : base (farbe)
+        public Haus(Pen pen) : base (pen)
         {
 
         }
+
         /*private int wegzumhaus;
 
         public event EventHandler Haus_Arrived;
