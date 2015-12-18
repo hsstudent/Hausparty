@@ -11,6 +11,7 @@ namespace F_Spielprojekt
 {
     public partial class Form1 : Form
     {
+        Panel panel;
         int lvl = 3;                                        //Schwierigkeitsstufe 3/4/5 für spätere implementierung
         Karte meineKarte;                                   // Die Karte beinhaltet die Strecken
         int punkte = 0;                                     // TODO: Punkte muss den Spielern zugeordnet werden
@@ -80,15 +81,16 @@ namespace F_Spielprojekt
                 // Nach jeder 50ten Streckänderung soll eine Figur erstellt werden  // Genauigkeit beeinflust diesen Wert
                 neueFigur();
             }
+            System.Threading.Thread.Sleep(190);
         }
 
         private void neueFigur()
         {
             Panel panel = new Panel();
             panel.Enabled = false;
+            panel.BackColor = Color.Transparent;
             panel.Location = new Point(Punkt.StartPosition.X, Punkt.StartPosition.Y);
             panel.Size = new Size(30, 80);
-            panel.BringToFront();
             Controls.Add(panel);
             zaehler = 0;
 
@@ -109,9 +111,7 @@ namespace F_Spielprojekt
                 case 5: pen = new Pen(Color.Yellow, stiftbreite);
                         myBrush = new SolidBrush(Color.Yellow);break;
             }
-            panel.TabIndex = 0;
             Graphics g = panel.CreateGraphics();
-
             Stickman stickman = new Stickman(new Punkt(10, 25), 1, myBrush, pen, g);
             Figur meineFigur = new Figur(pen, meineKarte, stickman);
             meineFigur.MeinPanel = panel;

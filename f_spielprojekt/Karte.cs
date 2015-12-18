@@ -96,6 +96,7 @@ namespace F_Spielprojekt
                             {
                                 form.Punkte--;                                      // Farbe falsch -1 Punkt                         
                             }
+                            figuren[i].MeinPanel.Hide();
                             figuren.RemoveAt(i);
                         }    
                     }

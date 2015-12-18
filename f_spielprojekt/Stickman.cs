@@ -49,7 +49,6 @@ namespace F_Spielprojekt
         public void Zeichne(int schritte)       // Zeichnet die Stickmans
         {
             schritte = (schritte % 6) + 1;
-            
 
             if (schritte == 1)                                                           // Schritt ist für die animation zuständig (1 - 6)
             {
@@ -68,6 +67,7 @@ namespace F_Spielprojekt
                 points[11] = points[7];
                 points[12] = new Point(meinPunkt.X + 3, meinPunkt.Y + 30);     // rechtes Knie
                 points[13] = new Point(meinPunkt.X + 5, meinPunkt.Y + 40);    // rechter Fuß
+                
                 g.DrawLines(pen, points);
                 g.DrawEllipse(pen, meinPunkt.X - 2, meinPunkt.Y - 9, 9, 9); // Kopf
                 g.FillEllipse(myBrush, meinPunkt.X - 2, meinPunkt.Y - 9, 9, 9);
@@ -89,6 +89,7 @@ namespace F_Spielprojekt
                 points[11] = points[7];
                 points[12] = new Point(meinPunkt.X + 2, meinPunkt.Y + 30);     // rechtes Knie
                 points[13] = new Point(meinPunkt.X + 3, meinPunkt.Y + 40);     // rechter Fuß
+                
                 g.DrawLines(pen, points);
                 g.DrawEllipse(pen, meinPunkt.X - 3, meinPunkt.Y - 10, 9, 9); // Kopf
                 g.FillEllipse(myBrush, meinPunkt.X - 3, meinPunkt.Y - 10, 9, 9);
@@ -110,6 +111,7 @@ namespace F_Spielprojekt
                 points[11] = points[7];
                 points[12] = new Point(meinPunkt.X + 1, meinPunkt.Y + 30);     // rechtes Knie
                 points[13] = new Point(meinPunkt.X + 1, meinPunkt.Y + 40);     // rechter Fuß
+                
                 g.DrawLines(pen, points);
                 g.DrawEllipse(pen, meinPunkt.X - 3, meinPunkt.Y - 10, 9, 9); // Kopf
                 g.FillEllipse(myBrush, meinPunkt.X - 3, meinPunkt.Y - 10, 9, 9);
@@ -131,6 +133,7 @@ namespace F_Spielprojekt
                 points[11] = points[7];
                 points[12] = new Point(meinPunkt.X, meinPunkt.Y + 30);         // rechtes Knie
                 points[13] = new Point(meinPunkt.X - 1, meinPunkt.Y + 40);     // rechter Fuß
+                
                 g.DrawLines(pen, points);
                 g.DrawEllipse(pen, meinPunkt.X - 2, meinPunkt.Y - 9, 9, 9); // Kopf
                 g.FillEllipse(myBrush, meinPunkt.X - 2, meinPunkt.Y - 9, 9, 9);
@@ -152,6 +155,7 @@ namespace F_Spielprojekt
                 points[11] = points[7];
                 points[12] = new Point(meinPunkt.X - 1, meinPunkt.Y + 30);     // rechtes Knie
                 points[13] = new Point(meinPunkt.X - 3, meinPunkt.Y + 40);     // rechter Fuß
+                
                 g.DrawLines(pen, points);
                 g.DrawEllipse(pen, meinPunkt.X - 2, meinPunkt.Y - 9, 9, 9); // Kopf
                 g.FillEllipse(myBrush, meinPunkt.X - 2, meinPunkt.Y - 9, 9, 9);
@@ -173,6 +177,7 @@ namespace F_Spielprojekt
                 points[11] = points[7];
                 points[12] = new Point(meinPunkt.X - 2, meinPunkt.Y + 30);     // rechtes Knie
                 points[13] = new Point(meinPunkt.X - 5, meinPunkt.Y + 40);    // rechter Fuß
+                
                 g.DrawLines(pen, points);
                 g.DrawEllipse(pen, meinPunkt.X - 2, meinPunkt.Y - 9, 9, 9); // Kopf
                 g.FillEllipse(myBrush, meinPunkt.X - 2, meinPunkt.Y - 9, 9, 9);
