@@ -7,7 +7,7 @@ namespace F_Spielprojekt
 {
     public class Karte
     {
-        public static int bewGenauigkeit = 100;                                     // Gibt an, ob jeder Pixel abgelaufen werden soll, oder nur ein Teil der Pixel
+        public static int bewGenauigkeit = 10;                                     // Gibt an, ob jeder Pixel abgelaufen werden soll, oder nur ein Teil der Pixel
         List<Strecke> strecken = new List<Strecke>();                               // Die Liste der Strecken für die Karte
         private List<Figur> figuren = new List<Figur>();                            // Die Liste der Figuren für die Karte
         private Form1 form;                                                         // Gibt an auf welchem Form die Karte liegen soll

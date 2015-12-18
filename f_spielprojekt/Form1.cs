@@ -84,6 +84,12 @@ namespace F_Spielprojekt
 
         private void neueFigur()
         {
+            Panel panel = new Panel();
+            panel.Enabled = false;
+            panel.Location = new Point(Punkt.StartPosition.X, Punkt.StartPosition.Y);
+            panel.Size = new Size(30, 80);
+            panel.BringToFront();
+            Controls.Add(panel);
             zaehler = 0;
 
             Random rndFarbe = new Random();
@@ -103,11 +109,12 @@ namespace F_Spielprojekt
                 case 5: pen = new Pen(Color.Yellow, stiftbreite);
                         myBrush = new SolidBrush(Color.Yellow);break;
             }
-            Graphics g = this.CreateGraphics();
+            panel.TabIndex = 0;
+            Graphics g = panel.CreateGraphics();
 
-            Stickman stickman = new Stickman(new Punkt(Punkt.StartPosition.X, Punkt.StartPosition.Y), 1, myBrush, pen, g);
-            stickman.GState = g;
+            Stickman stickman = new Stickman(new Punkt(10, 25), 1, myBrush, pen, g);
             Figur meineFigur = new Figur(pen, meineKarte, stickman);
+            meineFigur.MeinPanel = panel;
             meineKarte.addFigur(meineFigur);
             meineFigur.MeineStrecke = meineKarte.Strecken[0];
             stickman.Zeichne(1);

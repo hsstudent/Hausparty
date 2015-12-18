@@ -10,7 +10,7 @@ namespace F_Spielprojekt
     {
         protected Punkt meinPunkt;               // Y Punkt der Objekte
 
-        public Punkt MeinePosition
+        public Punkt MeinPunkt
         {
             get { return this.meinPunkt; }
             set { this.meinPunkt = value; }

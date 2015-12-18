@@ -12,10 +12,9 @@ namespace F_Spielprojekt
         private int schritte;
         private SolidBrush myBrush = new SolidBrush(Color.Aqua);
         private Pen pen = new Pen(Color.Aqua);
-        private Graphics gState;
         private Graphics g;
-        public Stickman(Punkt meinePosition, int schritte, SolidBrush myBrush, Pen pen, Graphics g)
-            : base(meinePosition)
+        public Stickman(Punkt meinPunkt, int schritte, SolidBrush myBrush, Pen pen, Graphics g)
+            : base(meinPunkt)
         {
             this.myBrush = myBrush;
             this.pen = pen;
@@ -47,27 +46,10 @@ namespace F_Spielprojekt
             get { return g; }
         }
 
-        public Graphics GState
-        {
-            get
-            {
-                return gState;
-            }
-
-            set
-            {
-                gState = value;
-            }
-        }
-
         public void Zeichne(int schritte)       // Zeichnet die Stickmans
         {
             schritte = (schritte % 6) + 1;
-            //System.Drawing.Imaging.PixelFormat pixelformat = new System.Drawing.Imaging.PixelFormat();
-            Bitmap hintergrund = Properties.Resources.Background_1;
-            //Rectangle rechteck = new Rectangle(new Point(this.meinPunkt.X+25, meinPunkt.Y), new Size(100, 100));
-            //Bitmap hintergrundBearbeitet = hintergrund.Clone(rechteck, pixelformat); 
-            gState.DrawImage(hintergrund, 0, 0);
+            
 
             if (schritte == 1)                                                           // Schritt ist für die animation zuständig (1 - 6)
             {
@@ -88,7 +70,7 @@ namespace F_Spielprojekt
                 points[13] = new Point(meinPunkt.X + 5, meinPunkt.Y + 40);    // rechter Fuß
                 g.DrawLines(pen, points);
                 g.DrawEllipse(pen, meinPunkt.X - 2, meinPunkt.Y - 9, 9, 9); // Kopf
-                g.FillEllipse(myBrush, meinPunkt.X - 2, meinPunkt.Y - 9, 9, 9); 
+                g.FillEllipse(myBrush, meinPunkt.X - 2, meinPunkt.Y - 9, 9, 9);
             }
             else if (schritte == 2)
             {

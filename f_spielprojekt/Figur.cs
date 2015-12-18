@@ -12,6 +12,7 @@ namespace F_Spielprojekt
         private Strecke meineStrecke;                   // Auf dieser Strecke befindet sich die Figur
         private int schritt;                            // Der Ort auf der jewiligen Stecke auf dem sich die Figur befindet
         private Stickman stickman;
+
         public Figur(Pen pen, Karte meineKarte, Stickman stickman)
             : base (pen)
         {
@@ -38,8 +39,10 @@ namespace F_Spielprojekt
         {
             if(meineStrecke.Genauigkeit != schritt)
             {
-                stickman.MeinePosition.X = stickman.MeinePosition.X + meineStrecke.Schritte_X;
-                stickman.MeinePosition.Y = stickman.MeinePosition.Y - meineStrecke.Schritte_Y;
+                //stickman.MeinePosition.X = stickman.MeinePosition.X + meineStrecke.Schritte_X;
+                //stickman.MeinePosition.Y = stickman.MeinePosition.Y - meineStrecke.Schritte_Y;
+
+                MeinPanel.Location = new Point(MeinPanel.Location.X + meineStrecke.Schritte_X, MeinPanel.Location.Y - meineStrecke.Schritte_Y);
 
                 int walk = schritt+1;
            
