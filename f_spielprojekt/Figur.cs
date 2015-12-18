@@ -43,7 +43,7 @@ namespace F_Spielprojekt
                 //stickman.MeinePosition.Y = stickman.MeinePosition.Y - meineStrecke.Schritte_Y;
 
                 meinPanel.Location = new Point(meinPanel.Location.X + meineStrecke.Schritte_X, meinPanel.Location.Y - meineStrecke.Schritte_Y);
-                meinPanel.BringToFront();
+                //meinPanel.BringToFront();
                 int walk = schritt+1;
            
                 stickman.Zeichne(walk);

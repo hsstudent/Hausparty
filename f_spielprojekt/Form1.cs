@@ -11,7 +11,6 @@ namespace F_Spielprojekt
 {
     public partial class Form1 : Form
     {
-        Panel panel;
         int lvl = 3;                                        //Schwierigkeitsstufe 3/4/5 für spätere implementierung
         Karte meineKarte;                                   // Die Karte beinhaltet die Strecken
         int punkte = 0;                                     // TODO: Punkte muss den Spielern zugeordnet werden
@@ -46,7 +45,7 @@ namespace F_Spielprojekt
             pB5.Enabled = true;
 
             Timer1 = new Timer();                               // Timer initialisieren
-            Timer1.Interval = 200;                              // Timer Intervall festlegen
+            Timer1.Interval = 20;                              // Timer Intervall festlegen
             Timer1.Start();                
             Timer1.Tick += new EventHandler(OnTickEvent);
 
@@ -81,7 +80,7 @@ namespace F_Spielprojekt
                 // Nach jeder 50ten Streckänderung soll eine Figur erstellt werden  // Genauigkeit beeinflust diesen Wert
                 neueFigur();
             }
-            System.Threading.Thread.Sleep(190);
+            System.Threading.Thread.Sleep(Timer1.Interval);
         }
 
         private void neueFigur()
