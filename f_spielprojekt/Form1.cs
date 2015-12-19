@@ -11,9 +11,10 @@ namespace F_Spielprojekt
 {
     public partial class Form1 : Form
     {
-        int lvl = 3;                                        //Schwierigkeitsstufe 3/4/5 für spätere implementierung
+        int lvl = 4;                                        // Schwierigkeitsstufe 3/4/5 für spätere implementierung
         Karte meineKarte;                                   // Die Karte beinhaltet die Strecken
-        int punkte = 0;                                     // TODO: Punkte muss den Spielern zugeordnet werden
+        int punkte = 0;                                     // Punktezähler im Spiel
+        Highscore neu;                                      // Instanz für einen Spieler angelegt
         Timer Timer1;
         private int zaehler = 0;                            // Nach jedem 10 Interval, soll ein neues Männchen genertiert werden
         float stiftbreite = 4f;
@@ -36,7 +37,9 @@ namespace F_Spielprojekt
             bStart.Hide();
             rtbName.Hide();
             lName.Hide();
-            lHighscore.Visible = true;
+            lScore.Visible = true;
+
+            neu = new Highscore(0, rtbName.Text);               // Name für das Highscore eintragen
 
             pB1.Enabled = true;                                 // Wegbuttons aktivieren
             pB2.Enabled = true;
@@ -45,7 +48,7 @@ namespace F_Spielprojekt
             pB5.Enabled = true;
 
             Timer1 = new Timer();                               // Timer initialisieren
-            Timer1.Interval = 20;                              // Timer Intervall festlegen
+            Timer1.Interval = 100;                              // Timer Intervall festlegen
             Timer1.Start();                
             Timer1.Tick += new EventHandler(OnTickEvent);
 
@@ -94,7 +97,7 @@ namespace F_Spielprojekt
             zaehler = 0;
 
             Random rndFarbe = new Random();
-            int farbe = rndFarbe.Next(1, 6);
+            int farbe = rndFarbe.Next(1, lvl);
             Pen pen = new Pen(Color.Transparent);
             SolidBrush myBrush = new SolidBrush(Color.Transparent);
             switch(farbe)
@@ -190,12 +193,12 @@ namespace F_Spielprojekt
             }
         }
 
-        private void bHighscore_Click(object sender, EventArgs e)
+        private void bHighscore_Click(object sender, EventArgs e)           //unvollständig, bzw nur Platzhalter
         {
-            
+            MessageBox.Show("Highscore: ");
         }
-
-        private void bOptionen_Click(object sender, EventArgs e)
+        
+        private void bOptionen_Click(object sender, EventArgs e)        
         {
             Optionen form2 = new Optionen();
             form2.ShowDialog();
@@ -223,5 +226,11 @@ namespace F_Spielprojekt
             else
             { bStart.Enabled = false; }
         }
+
+        public void HighscoreAktualisieren()                        //Aktualisiert die Punkteanzeige während dem Spiel
+        {
+            lScore.Text = "Score: " + punkte;
+        }
+
     }
 }

@@ -13,7 +13,7 @@ namespace F_Spielprojekt
         private Button bOptionen;
         private Button bHighscore;
 
-        private Label lHighscore;
+        private Label lScore;
         private Label lName;
         private RichTextBox rtbName;
 
@@ -48,7 +48,7 @@ namespace F_Spielprojekt
             this.bStart = new System.Windows.Forms.Button();
             this.bOptionen = new System.Windows.Forms.Button();
             this.bHighscore = new System.Windows.Forms.Button();
-            this.lHighscore = new System.Windows.Forms.Label();
+            this.lScore = new System.Windows.Forms.Label();
             this.lName = new System.Windows.Forms.Label();
             this.rtbName = new System.Windows.Forms.RichTextBox();
             this.pB5 = new F_Spielprojekt.PictureBox1();
@@ -94,17 +94,17 @@ namespace F_Spielprojekt
             this.bHighscore.UseVisualStyleBackColor = true;
             this.bHighscore.Click += new System.EventHandler(this.bHighscore_Click);
             // 
-            // lHighscore
+            // lScore
             // 
-            this.lHighscore.AutoSize = true;
-            this.lHighscore.BackColor = System.Drawing.Color.Transparent;
-            this.lHighscore.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lHighscore.Location = new System.Drawing.Point(582, 18);
-            this.lHighscore.Name = "lHighscore";
-            this.lHighscore.Size = new System.Drawing.Size(114, 16);
-            this.lHighscore.TabIndex = 13;
-            this.lHighscore.Text = "Highscore: XXX";
-            this.lHighscore.Visible = false;
+            this.lScore.AutoSize = true;
+            this.lScore.BackColor = System.Drawing.Color.Transparent;
+            this.lScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lScore.Location = new System.Drawing.Point(582, 18);
+            this.lScore.Name = "lScore";
+            this.lScore.Size = new System.Drawing.Size(65, 16);
+            this.lScore.TabIndex = 13;
+            this.lScore.Text = "Score: 0";
+            this.lScore.Visible = false;
             // 
             // lName
             // 
@@ -188,13 +188,13 @@ namespace F_Spielprojekt
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(784, 341);
+            this.ClientSize = new System.Drawing.Size(784, 342);
             this.Controls.Add(this.pB5);
             this.Controls.Add(this.pB4);
             this.Controls.Add(this.pB3);
             this.Controls.Add(this.pB2);
             this.Controls.Add(this.pB1);
-            this.Controls.Add(this.lHighscore);
+            this.Controls.Add(this.lScore);
             this.Controls.Add(this.lName);
             this.Controls.Add(this.rtbName);
             this.Controls.Add(this.bHighscore);

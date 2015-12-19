@@ -24,7 +24,7 @@ namespace F_Spielprojekt
         {
             if (rbLeicht.Checked)
             {
-                lvl = 3; ;
+                lvl = 4; ;
             }
         }
 
@@ -32,7 +32,7 @@ namespace F_Spielprojekt
         {
             if (rbMittel.Checked)
             {
-                lvl = 4;
+                lvl = 5;
             }
         }
 
@@ -40,7 +40,7 @@ namespace F_Spielprojekt
         {
             if (rbSchwer.Checked)
             {
-                lvl = 5;
+                lvl = 6;
             }
         }
 

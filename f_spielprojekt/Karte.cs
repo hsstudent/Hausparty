@@ -91,10 +91,12 @@ namespace F_Spielprojekt
                             if(strecken[j].Haus.Pen.Color == figuren[i].Stickman.Pen.Color)          // Farbe überprüfen
                             {    
                                 form.Punkte++;                                      // Farbe passt +1 Punkt
+                                form.HighscoreAktualisieren();
                             }
                             else
                             {
-                                form.Punkte--;                                      // Farbe falsch -1 Punkt                         
+                                form.Punkte--;                                      // Farbe falsch -1 Punkt   
+                                form.HighscoreAktualisieren();
                             }
                             figuren[i].MeinPanel.Hide();
                             figuren.RemoveAt(i);
