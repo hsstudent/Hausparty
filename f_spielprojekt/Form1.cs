@@ -62,9 +62,9 @@ namespace F_Spielprojekt
             Haus haus5 = new Haus(new Pen(Color.Black));
 
             // Die Strecken bekommen Häuser
-            meineKarte.Strecken[6].Haus = haus1;
-            meineKarte.Strecken[7].Haus = haus2;
-            meineKarte.Strecken[8].Haus = haus3;
+            meineKarte.Strecken[6].Haus = haus3;
+            meineKarte.Strecken[7].Haus = haus1;
+            meineKarte.Strecken[8].Haus = haus2;
             meineKarte.Strecken[9].Haus = haus4;
             meineKarte.Strecken[10].Haus = haus5;
 
@@ -231,6 +231,5 @@ namespace F_Spielprojekt
         {
             lScore.Text = "Score: " + punkte;
         }
-
     }
 }

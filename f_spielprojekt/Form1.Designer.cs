@@ -67,7 +67,7 @@ namespace F_Spielprojekt
             // 
             this.bStart.Enabled = false;
             this.bStart.Location = new System.Drawing.Point(445, 348);
-            this.bStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bStart.Margin = new System.Windows.Forms.Padding(4);
             this.bStart.Name = "bStart";
             this.bStart.Size = new System.Drawing.Size(149, 63);
             this.bStart.TabIndex = 0;
@@ -78,7 +78,7 @@ namespace F_Spielprojekt
             // bOptionen
             // 
             this.bOptionen.Location = new System.Drawing.Point(880, 348);
-            this.bOptionen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bOptionen.Margin = new System.Windows.Forms.Padding(4);
             this.bOptionen.Name = "bOptionen";
             this.bOptionen.Size = new System.Drawing.Size(149, 63);
             this.bOptionen.TabIndex = 1;
@@ -89,7 +89,7 @@ namespace F_Spielprojekt
             // bHighscore
             // 
             this.bHighscore.Location = new System.Drawing.Point(13, 348);
-            this.bHighscore.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bHighscore.Margin = new System.Windows.Forms.Padding(4);
             this.bHighscore.Name = "bHighscore";
             this.bHighscore.Size = new System.Drawing.Size(149, 63);
             this.bHighscore.TabIndex = 2;
@@ -114,7 +114,7 @@ namespace F_Spielprojekt
             // 
             this.lName.AutoSize = true;
             this.lName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.lName.Location = new System.Drawing.Point(205, 78);
+            this.lName.Location = new System.Drawing.Point(209, 22);
             this.lName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lName.Name = "lName";
             this.lName.Size = new System.Drawing.Size(275, 29);
@@ -124,8 +124,8 @@ namespace F_Spielprojekt
             // rtbName
             // 
             this.rtbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.rtbName.Location = new System.Drawing.Point(499, 78);
-            this.rtbName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rtbName.Location = new System.Drawing.Point(506, 23);
+            this.rtbName.Margin = new System.Windows.Forms.Padding(4);
             this.rtbName.Name = "rtbName";
             this.rtbName.Size = new System.Drawing.Size(223, 30);
             this.rtbName.TabIndex = 11;
@@ -138,7 +138,7 @@ namespace F_Spielprojekt
             this.pB5.Location = new System.Drawing.Point(921, 284);
             this.pB5.Margin = new System.Windows.Forms.Padding(4);
             this.pB5.Name = "pB5";
-            this.pB5.Size = new System.Drawing.Size(69, 62);
+            this.pB5.Size = new System.Drawing.Size(55, 46);
             this.pB5.TabIndex = 14;
             this.pB5.TabStop = false;
             this.pB5.Wegpunkt = false;
@@ -162,7 +162,7 @@ namespace F_Spielprojekt
             this.pB3.Location = new System.Drawing.Point(555, 284);
             this.pB3.Margin = new System.Windows.Forms.Padding(4);
             this.pB3.Name = "pB3";
-            this.pB3.Size = new System.Drawing.Size(69, 62);
+            this.pB3.Size = new System.Drawing.Size(50, 46);
             this.pB3.TabIndex = 14;
             this.pB3.TabStop = false;
             this.pB3.Wegpunkt = false;
@@ -174,7 +174,7 @@ namespace F_Spielprojekt
             this.pB2.Location = new System.Drawing.Point(376, 284);
             this.pB2.Margin = new System.Windows.Forms.Padding(4);
             this.pB2.Name = "pB2";
-            this.pB2.Size = new System.Drawing.Size(69, 62);
+            this.pB2.Size = new System.Drawing.Size(50, 46);
             this.pB2.TabIndex = 14;
             this.pB2.TabStop = false;
             this.pB2.Wegpunkt = false;
@@ -183,10 +183,10 @@ namespace F_Spielprojekt
             // pB1
             // 
             this.pB1.BackgroundImage = global::F_Spielprojekt.Properties.Resources.StraßeGeradeButton;
-            this.pB1.Location = new System.Drawing.Point(189, 284);
+            this.pB1.Location = new System.Drawing.Point(198, 284);
             this.pB1.Margin = new System.Windows.Forms.Padding(4);
             this.pB1.Name = "pB1";
-            this.pB1.Size = new System.Drawing.Size(69, 62);
+            this.pB1.Size = new System.Drawing.Size(56, 46);
             this.pB1.TabIndex = 14;
             this.pB1.TabStop = false;
             this.pB1.Wegpunkt = false;
@@ -200,13 +200,13 @@ namespace F_Spielprojekt
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1043, 412);
+            this.Controls.Add(this.lName);
             this.Controls.Add(this.pB5);
             this.Controls.Add(this.pB4);
             this.Controls.Add(this.pB3);
             this.Controls.Add(this.pB2);
             this.Controls.Add(this.pB1);
             this.Controls.Add(this.lScore);
-            this.Controls.Add(this.lName);
             this.Controls.Add(this.rtbName);
             this.Controls.Add(this.bHighscore);
             this.Controls.Add(this.bOptionen);
