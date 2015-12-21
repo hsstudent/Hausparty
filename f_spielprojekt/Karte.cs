@@ -88,15 +88,37 @@ namespace F_Spielprojekt
                         }     
                         else if(j+1 == strecken.Count)                              // Ende der Strecke
                         { 
-                            if(strecken[j].Haus.Pen.Color == figuren[i].Stickman.Pen.Color)          // Farbe überprüfen
-                            {    
-                                form.Punkte++;                                      // Farbe passt +1 Punkt
-                                form.HighscoreAktualisieren();
+                            if(figuren[i].MeineStrecke.Haus != null)
+                            {
+                                if (figuren[i].MeineStrecke.Haus.Pen.Color == figuren[i].Stickman.Pen.Color)          // Farbe überprüfen
+                                {
+                                    form.Punkte++;                                      // Farbe passt +1 Punkt
+                                    form.HighscoreAktualisieren();
+                                }
+                                else
+                                {
+                                    form.Punkte--;                                      // Farbe falsch -1 Punkt   
+                                    form.HighscoreAktualisieren();
+                                    if (form.Punkte < 0)
+                                    {
+                                        form.Punkte = 0;
+                                        figuren.Clear();
+                                        form.spielEnde();
+                                        break;
+                                    }
+                                }
                             }
                             else
                             {
-                                form.Punkte--;                                      // Farbe falsch -1 Punkt   
+                                form.Punkte--;  // Strecke Ende
                                 form.HighscoreAktualisieren();
+                                if(form.Punkte < 0)
+                                {
+                                    form.Punkte = 0;
+                                    figuren.Clear();
+                                    form.spielEnde();
+                                    break;
+                                }
                             }
                             figuren[i].MeinPanel.Hide();
                             figuren.RemoveAt(i);

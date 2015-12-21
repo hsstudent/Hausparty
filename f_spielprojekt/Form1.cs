@@ -15,7 +15,7 @@ namespace F_Spielprojekt
         Karte meineKarte;                                   // Die Karte beinhaltet die Strecken
         int punkte = 0;                                     // Punktezähler im Spiel
         Highscore neu;                                      // Instanz für einen Spieler angelegt
-        Timer Timer1;
+        Timer timer;
         private int zaehler = 0;                            // Nach jedem 10 Interval, soll ein neues Männchen genertiert werden
         float stiftbreite = 4f;
         
@@ -30,6 +30,23 @@ namespace F_Spielprojekt
             InitializeComponent();
         }
 
+        public void spielEnde()
+        {
+            bOptionen.Show();
+            bHighscore.Show();
+            bStart.Show();
+
+            rtbName.Show();
+            lName.Show();
+
+            pB1.Enabled = false;
+            pB2.Enabled = false;
+            pB3.Enabled = false;
+            pB4.Enabled = false;
+            pB5.Enabled = false;
+
+            timer.Stop();
+        }
         private void bStart_Click(object sender, EventArgs e)
         {
             bOptionen.Hide();                                   // Buttons ausblenden
@@ -47,26 +64,26 @@ namespace F_Spielprojekt
             pB4.Enabled = true;
             pB5.Enabled = true;
 
-            Timer1 = new Timer();                               // Timer initialisieren
-            Timer1.Interval = 100;                              // Timer Intervall festlegen
-            Timer1.Start();                
-            Timer1.Tick += new EventHandler(OnTickEvent);
+            timer = new Timer();                               // Timer initialisieren
+            timer.Interval = 100;                              // Timer Intervall festlegen
+            timer.Start();                
+            timer.Tick += new EventHandler(OnTickEvent);
 
             meineKarte = new Karte(this);
 
             // Häuser erstellen und Farbe zuweisen
-            Haus haus1 = new Haus(new Pen(Color.Blue));
-            Haus haus2 = new Haus(new Pen(Color.Yellow));
-            Haus haus3 = new Haus(new Pen(Color.Green));
+            Haus haus1 = new Haus(new Pen(Color.Green));
+            Haus haus2 = new Haus(new Pen(Color.Blue));
+            Haus haus3 = new Haus(new Pen(Color.Yellow));
             Haus haus4 = new Haus(new Pen(Color.Red));
             Haus haus5 = new Haus(new Pen(Color.Black));
 
             // Die Strecken bekommen Häuser
-            meineKarte.Strecken[6].Haus = haus3;
-            meineKarte.Strecken[7].Haus = haus1;
-            meineKarte.Strecken[8].Haus = haus2;
-            meineKarte.Strecken[9].Haus = haus4;
-            meineKarte.Strecken[10].Haus = haus5;
+            meineKarte.Strecken[1].Haus = haus1;
+            meineKarte.Strecken[3].Haus = haus2;
+            meineKarte.Strecken[5].Haus = haus3;
+            meineKarte.Strecken[7].Haus = haus4;
+            meineKarte.Strecken[9].Haus = haus5;
 
             neueFigur();                                        //Anfangsmännchen
         }
@@ -83,7 +100,7 @@ namespace F_Spielprojekt
                 // Nach jeder 50ten Streckänderung soll eine Figur erstellt werden  // Genauigkeit beeinflust diesen Wert
                 neueFigur();
             }
-            System.Threading.Thread.Sleep(Timer1.Interval);
+            System.Threading.Thread.Sleep(timer.Interval);
         }
 
         private void neueFigur()
@@ -208,7 +225,7 @@ namespace F_Spielprojekt
         private void Form1_Click(object sender, MouseEventArgs e)
         {
             
-            MessageBox.Show(e.X.ToString()+ " " + e.Y.ToString());
+            //MessageBox.Show(e.X.ToString()+ " " + e.Y.ToString());
 
         }
 
