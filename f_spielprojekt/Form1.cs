@@ -55,6 +55,7 @@ namespace F_Spielprojekt
             rtbName.Hide();
             lName.Hide();
             lScore.Visible = true;
+            this.punkte = 0;
 
             neu = new Highscore(0, rtbName.Text);               // Name für das Highscore eintragen
 
@@ -99,6 +100,11 @@ namespace F_Spielprojekt
             {
                 // Nach jeder 50ten Streckänderung soll eine Figur erstellt werden  // Genauigkeit beeinflust diesen Wert
                 neueFigur();
+                if(timer.Interval < 1)
+                {
+                    spielEnde();
+                }
+                timer.Interval--;
             }
             System.Threading.Thread.Sleep(timer.Interval);
         }
