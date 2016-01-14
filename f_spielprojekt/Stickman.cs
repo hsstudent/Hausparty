@@ -45,7 +45,11 @@ namespace F_Spielprojekt
         {
             get { return g; }
         }
-
+        /// <summary>
+        /// Zeichnet die Männchen relativ zur Form in einer Box
+        /// Die Bewegung des Männchens hat x unterschiedliche Positionen, die eine Bewegung simulieren.
+        /// </summary>
+        /// <param name="schritte"></param>
         public void Zeichne(int schritte)       // Zeichnet die Stickmans
         {
             schritte = (schritte % 6);

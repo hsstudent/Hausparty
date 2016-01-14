@@ -35,12 +35,16 @@ namespace F_Spielprojekt
         {
             get { return stickman; }
         }
+
+        /// <summary>
+        /// Erhöht den X und Y Wert der aktuellen Position. Alle Männchen laufen einen Schritt weiter. Das Männchen wird neu gezeichnet.
+        /// Wenn das Ende des Weges erreicht ist, soll false zurück gegeben werden, d.h. die Strecke ist zu Ende.
+        /// </summary>
+        /// <returns></returns>
         public bool laufeStrecke()
         {
             if(meineStrecke.Genauigkeit != schritt)
             {
-                //stickman.MeinePosition.X = stickman.MeinePosition.X + meineStrecke.Schritte_X;
-                //stickman.MeinePosition.Y = stickman.MeinePosition.Y - meineStrecke.Schritte_Y;
 
                 meinPanel.Location = new Point(meinPanel.Location.X + meineStrecke.Schritte_X, meinPanel.Location.Y - meineStrecke.Schritte_Y);
                 //meinPanel.BringToFront();

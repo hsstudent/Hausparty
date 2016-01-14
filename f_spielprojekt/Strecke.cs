@@ -15,7 +15,12 @@ namespace F_Spielprojekt
         int laenge_X, laenge_Y;                                             // Länge der Strecke in Pixel
         int schritte_X, schritte_Y;                                         // Gibt an, wieviel Schritte eine Strecke hat
         int genauigkeit = Karte.bewGenauigkeit;                             // Gibt an, ob jeder Pixel abgelaufen werden soll, oder nur ein Teil der Pixel
-
+        /// <summary>
+        /// Bestimmt wieviele Schritte eine Strecke hat. Kann individuell durch die Genauigkeit eingestellt werden.
+        /// Gemessen wird die Distant des Start- und Endpunktes
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
         public Strecke(Punkt a, Punkt b)                                    // Berechnung der Schrittte, Genauigkeit kann eingestellt werden
         {
             laenge_X = Math.Abs(b.X - a.X);

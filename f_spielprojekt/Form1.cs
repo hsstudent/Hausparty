@@ -11,30 +11,40 @@ namespace F_Spielprojekt
 {
     public partial class Form1 : Form
     {
-        int lvl = 4;                                        // Schwierigkeitsstufe 3/4/5 für spätere implementierung
+        int lvl = 4;                                        // Schwierigkeitsstufe 4/5/6 für spätere implementierung
         Karte meineKarte;                                   // Die Karte beinhaltet die Strecken
         int punkte = 0;                                     // Punktezähler im Spiel
-        Highscore neu;                                      // Instanz für einen Spieler angelegt
+        int leben = 3;
+        Highscore neu = new Highscore();  // Name für das Highscore eintragen                                    // Instanz für einen Spieler angelegt
         Timer timer;
+        Timer v;                                            // Geschwindigkeit
         private int zaehler = 0;                            // Nach jedem 10 Interval, soll ein neues Männchen genertiert werden
         float stiftbreite = 4f;
+
         
         public int Punkte
         {
             get { return punkte; }
             set { punkte = value; }
         }
-
+        public int Leben
+        {
+            get { return leben; }
+            set { leben = value; }
+        }
         public Form1()
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Deaktiviert die Weichen und aktiviert die Menü Buttons.
+        /// </summary>
         public void spielEnde()
         {
             bOptionen.Show();
             bHighscore.Show();
             bStart.Show();
+            lSchwierigkeit.Visible = true;
 
             rtbName.Show();
             lName.Show();
@@ -45,8 +55,18 @@ namespace F_Spielprojekt
             pB4.Enabled = false;
             pB5.Enabled = false;
 
+            
+
             timer.Stop();
+            neu.Score = punkte;
+            neu.Vergleich();
         }
+        /// <summary>
+        /// Die einzelnen Strecken bekommen Häuser zugewiesen.
+        /// Aktiviert das Spiel.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bStart_Click(object sender, EventArgs e)
         {
             bOptionen.Hide();                                   // Buttons ausblenden
@@ -55,9 +75,14 @@ namespace F_Spielprojekt
             rtbName.Hide();
             lName.Hide();
             lScore.Visible = true;
-            this.punkte = 0;
-
-            neu = new Highscore(0, rtbName.Text);               // Name für das Highscore eintragen
+            lLeben.Visible = true;
+            punkte = 0;
+            leben = 3;
+            HighscoreAktualisieren();
+            LebenAktualisieren();
+            neu.SpielerName = rtbName.Text;
+            lSchwierigkeit.Visible = false;
+            
 
             pB1.Enabled = true;                                 // Wegbuttons aktivieren
             pB2.Enabled = true;
@@ -73,9 +98,9 @@ namespace F_Spielprojekt
             meineKarte = new Karte(this);
 
             // Häuser erstellen und Farbe zuweisen
-            Haus haus1 = new Haus(new Pen(Color.Green));
+            Haus haus1 = new Haus(new Pen(Color.Yellow));
             Haus haus2 = new Haus(new Pen(Color.Blue));
-            Haus haus3 = new Haus(new Pen(Color.Yellow));
+            Haus haus3 = new Haus(new Pen(Color.Green));
             Haus haus4 = new Haus(new Pen(Color.Red));
             Haus haus5 = new Haus(new Pen(Color.Black));
 
@@ -88,7 +113,12 @@ namespace F_Spielprojekt
 
             neueFigur();                                        //Anfangsmännchen
         }
-
+        /// <summary>
+        /// Wenn der Timer abgelaufen ist, sollen alle Figuren einen Schritt weiter laufen.
+        /// Nach einer bestimmten Zahl i, soll ein Männchen erzeugt werden und die Geschwindigkeit erhöht werden.
+        /// </summary>
+        /// <param name="myObject"></param>
+        /// <param name="myEventArgs"></param>
         private void OnTickEvent(Object myObject, EventArgs myEventArgs)
         {
             zaehler++;
@@ -109,6 +139,10 @@ namespace F_Spielprojekt
             System.Threading.Thread.Sleep(timer.Interval);
         }
 
+        /// <summary>
+        /// Eine neue Figur wird gezeichnet und der Form übergeben
+        /// Die Figur erhählt eine Strecke und eine Startposition
+        /// </summary>
         private void neueFigur()
         {
             Panel panel = new Panel();
@@ -216,9 +250,10 @@ namespace F_Spielprojekt
             }
         }
 
-        private void bHighscore_Click(object sender, EventArgs e)           //unvollständig, bzw nur Platzhalter
+        private void bHighscore_Click(object sender, EventArgs e)           //unvollständig
         {
-            MessageBox.Show("Highscore: ");
+            neu.Laden();
+            MessageBox.Show("Spieler: " + neu.SpielerNameHighscore + " Highscore: " + neu.Hscore);
         }
         
         private void bOptionen_Click(object sender, EventArgs e)        
@@ -226,6 +261,7 @@ namespace F_Spielprojekt
             Optionen form2 = new Optionen();
             form2.ShowDialog();
             lvl = form2.Lvl;
+            SchwierigkeitAktualisieren();
         }
 
         private void Form1_Click(object sender, MouseEventArgs e)
@@ -254,5 +290,44 @@ namespace F_Spielprojekt
         {
             lScore.Text = "Score: " + punkte;
         }
+        public void LebenAktualisieren()                        //Aktualisiert die Lebenanzeige während dem Spiel
+        {
+            lLeben.Text = "Leben: " + leben;
+            if (leben <= 1)
+            {
+                lLeben.ForeColor = Color.Red;
+            }
+            else
+            {
+                lLeben.ForeColor = Color.Black;
+            }
+        }
+
+        public void SchwierigkeitAktualisieren()
+        {
+            if (lvl == 4)
+            {
+                lSchwierigkeit.Text = "Schwierigkeit: Leicht";
+            }
+            else if (lvl == 5)
+            {
+                lSchwierigkeit.Text = "Schwierigkeit: Mittel";
+            }
+            else
+            {
+                lSchwierigkeit.Text = "Schwierigkeit: Schwer";
+            }
+        }
+
+        private void lLeben_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lScore_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

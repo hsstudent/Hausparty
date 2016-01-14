@@ -11,7 +11,11 @@ namespace F_Spielprojekt
         List<Strecke> strecken = new List<Strecke>();                               // Die Liste der Strecken für die Karte
         private List<Figur> figuren = new List<Figur>();                            // Die Liste der Figuren für die Karte
         private Form1 form;                                                         // Gibt an auf welchem Form die Karte liegen soll
-
+        /// <summary>
+        /// Hier werden die einzelnen Strecken zu den Häusern erzeugt.
+        /// Eine Strecke kann ein Haus oder eine Weiche haben.
+        /// </summary>
+        /// <param name="form"></param>
         public Karte(Form1 form)                                                    // Erzeug die Karte mit allen Stecken, Weichen
         {
             this.form = form;
@@ -57,7 +61,11 @@ namespace F_Spielprojekt
             get { return strecken; }
             set { strecken = value; }
         }
-
+        /// <summary>
+        /// Die Strecke wird so lange abgelaufen, bis das Ende der Strecke erreicht ist (if).
+        /// Danach werden alle Strecken durchgegangen und überprüft, ob es eine weitere Strecke gibt, oder das Ende erreicht ist (else).
+        /// Als Ende ist das Streckenende oder ein Haus möglich.
+        /// </summary>
         public void streckeAendern()                                                // Alle Figuren laufen einen Schritt weiter
         {
             for(int i = 0; i < figuren.Count; i++)
@@ -97,11 +105,11 @@ namespace F_Spielprojekt
                                 }
                                 else
                                 {
-                                    form.Punkte--;                                      // Farbe falsch -1 Punkt   
+                                    form.Leben--;                                      // Farbe falsch -1 Punkt   
                                     form.HighscoreAktualisieren();
-                                    if (form.Punkte < 0)
+                                    form.LebenAktualisieren();
+                                    if (form.Leben <= 0)
                                     {
-                                        form.Punkte = 0;
                                         figuren.Clear();
                                         form.spielEnde();
                                         break;
@@ -110,11 +118,10 @@ namespace F_Spielprojekt
                             }
                             else
                             {
-                                form.Punkte--;  // Strecke Ende
-                                form.HighscoreAktualisieren();
+                                form.Leben--;  // Strecke Ende
+                                form.LebenAktualisieren();
                                 if(form.Punkte < 0)
                                 {
-                                    form.Punkte = 0;
                                     figuren.Clear();
                                     form.spielEnde();
                                     break;

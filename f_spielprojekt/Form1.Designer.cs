@@ -51,6 +51,8 @@ namespace F_Spielprojekt
             this.lScore = new System.Windows.Forms.Label();
             this.lName = new System.Windows.Forms.Label();
             this.rtbName = new System.Windows.Forms.RichTextBox();
+            this.lLeben = new System.Windows.Forms.Label();
+            this.lSchwierigkeit = new System.Windows.Forms.Label();
             this.pB5 = new F_Spielprojekt.PictureBox1();
             this.pB4 = new F_Spielprojekt.PictureBox1();
             this.pB3 = new F_Spielprojekt.PictureBox1();
@@ -66,7 +68,7 @@ namespace F_Spielprojekt
             // bStart
             // 
             this.bStart.Enabled = false;
-            this.bStart.Location = new System.Drawing.Point(334, 283);
+            this.bStart.Location = new System.Drawing.Point(288, 283);
             this.bStart.Name = "bStart";
             this.bStart.Size = new System.Drawing.Size(112, 51);
             this.bStart.TabIndex = 0;
@@ -98,21 +100,22 @@ namespace F_Spielprojekt
             // 
             this.lScore.AutoSize = true;
             this.lScore.BackColor = System.Drawing.Color.Transparent;
-            this.lScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lScore.Location = new System.Drawing.Point(582, 18);
+            this.lScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lScore.Location = new System.Drawing.Point(665, 20);
             this.lScore.Name = "lScore";
-            this.lScore.Size = new System.Drawing.Size(65, 16);
+            this.lScore.Size = new System.Drawing.Size(88, 24);
             this.lScore.TabIndex = 13;
             this.lScore.Text = "Score: 0";
             this.lScore.Visible = false;
+            this.lScore.Click += new System.EventHandler(this.lScore_Click);
             // 
             // lName
             // 
             this.lName.AutoSize = true;
-            this.lName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.lName.Location = new System.Drawing.Point(157, 18);
+            this.lName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lName.Location = new System.Drawing.Point(146, 20);
             this.lName.Name = "lName";
-            this.lName.Size = new System.Drawing.Size(214, 25);
+            this.lName.Size = new System.Drawing.Size(228, 24);
             this.lName.TabIndex = 12;
             this.lName.Text = "Spielername eintragen:";
             // 
@@ -126,12 +129,36 @@ namespace F_Spielprojekt
             this.rtbName.Text = "";
             this.rtbName.TextChanged += new System.EventHandler(this.rtbName_TextChanged);
             // 
+            // lLeben
+            // 
+            this.lLeben.AutoSize = true;
+            this.lLeben.BackColor = System.Drawing.Color.Transparent;
+            this.lLeben.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lLeben.Location = new System.Drawing.Point(567, 20);
+            this.lLeben.Name = "lLeben";
+            this.lLeben.Size = new System.Drawing.Size(92, 24);
+            this.lLeben.TabIndex = 15;
+            this.lLeben.Text = "Leben: 3";
+            this.lLeben.Visible = false;
+            this.lLeben.Click += new System.EventHandler(this.lLeben_Click);
+            // 
+            // lSchwierigkeit
+            // 
+            this.lSchwierigkeit.AutoSize = true;
+            this.lSchwierigkeit.BackColor = System.Drawing.Color.Transparent;
+            this.lSchwierigkeit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lSchwierigkeit.Location = new System.Drawing.Point(430, 294);
+            this.lSchwierigkeit.Name = "lSchwierigkeit";
+            this.lSchwierigkeit.Size = new System.Drawing.Size(196, 24);
+            this.lSchwierigkeit.TabIndex = 16;
+            this.lSchwierigkeit.Text = "Schwierigkeit: leicht";
+            // 
             // pB5
             // 
             this.pB5.BackgroundImage = global::F_Spielprojekt.Properties.Resources.StraßeGeradeButton;
-            this.pB5.Location = new System.Drawing.Point(691, 231);
+            this.pB5.Location = new System.Drawing.Point(699, 237);
             this.pB5.Name = "pB5";
-            this.pB5.Size = new System.Drawing.Size(41, 37);
+            this.pB5.Size = new System.Drawing.Size(37, 31);
             this.pB5.TabIndex = 14;
             this.pB5.TabStop = false;
             this.pB5.Wegpunkt = false;
@@ -140,9 +167,9 @@ namespace F_Spielprojekt
             // pB4
             // 
             this.pB4.BackgroundImage = global::F_Spielprojekt.Properties.Resources.StraßeGeradeButton;
-            this.pB4.Location = new System.Drawing.Point(560, 231);
+            this.pB4.Location = new System.Drawing.Point(562, 237);
             this.pB4.Name = "pB4";
-            this.pB4.Size = new System.Drawing.Size(42, 37);
+            this.pB4.Size = new System.Drawing.Size(36, 31);
             this.pB4.TabIndex = 14;
             this.pB4.TabStop = false;
             this.pB4.Wegpunkt = false;
@@ -151,9 +178,9 @@ namespace F_Spielprojekt
             // pB3
             // 
             this.pB3.BackgroundImage = global::F_Spielprojekt.Properties.Resources.StraßeGeradeButton;
-            this.pB3.Location = new System.Drawing.Point(416, 231);
+            this.pB3.Location = new System.Drawing.Point(424, 237);
             this.pB3.Name = "pB3";
-            this.pB3.Size = new System.Drawing.Size(38, 37);
+            this.pB3.Size = new System.Drawing.Size(36, 31);
             this.pB3.TabIndex = 14;
             this.pB3.TabStop = false;
             this.pB3.Wegpunkt = false;
@@ -162,9 +189,9 @@ namespace F_Spielprojekt
             // pB2
             // 
             this.pB2.BackgroundImage = global::F_Spielprojekt.Properties.Resources.StraßeGeradeButton;
-            this.pB2.Location = new System.Drawing.Point(282, 231);
+            this.pB2.Location = new System.Drawing.Point(288, 237);
             this.pB2.Name = "pB2";
-            this.pB2.Size = new System.Drawing.Size(38, 37);
+            this.pB2.Size = new System.Drawing.Size(37, 31);
             this.pB2.TabIndex = 14;
             this.pB2.TabStop = false;
             this.pB2.Wegpunkt = false;
@@ -173,9 +200,9 @@ namespace F_Spielprojekt
             // pB1
             // 
             this.pB1.BackgroundImage = global::F_Spielprojekt.Properties.Resources.StraßeGeradeButton;
-            this.pB1.Location = new System.Drawing.Point(148, 231);
+            this.pB1.Location = new System.Drawing.Point(150, 237);
             this.pB1.Name = "pB1";
-            this.pB1.Size = new System.Drawing.Size(42, 37);
+            this.pB1.Size = new System.Drawing.Size(36, 31);
             this.pB1.TabIndex = 14;
             this.pB1.TabStop = false;
             this.pB1.Wegpunkt = false;
@@ -188,7 +215,9 @@ namespace F_Spielprojekt
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(784, 340);
+            this.ClientSize = new System.Drawing.Size(784, 341);
+            this.Controls.Add(this.lSchwierigkeit);
+            this.Controls.Add(this.lLeben);
             this.Controls.Add(this.lName);
             this.Controls.Add(this.pB5);
             this.Controls.Add(this.pB4);
@@ -201,7 +230,7 @@ namespace F_Spielprojekt
             this.Controls.Add(this.bOptionen);
             this.Controls.Add(this.bStart);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximumSize = new System.Drawing.Size(800, 379);
             this.MinimumSize = new System.Drawing.Size(800, 379);
             this.Name = "Form1";
@@ -217,6 +246,9 @@ namespace F_Spielprojekt
             this.PerformLayout();
 
         }
+
+        private Label lLeben;
+        private Label lSchwierigkeit;
 
         public PictureBox1 PB1
         {
